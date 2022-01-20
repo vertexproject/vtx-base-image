@@ -11,7 +11,8 @@ COPY pandoc.deb.sha256 pandoc.deb.sha256
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
-# Add a wrapper script for pip
+#  Since we are using --no-deps if a package has a missing dependency here,
+#  it will fail during testing.
 # cleanup
 RUN set -ex \
     && apt-get clean \
@@ -28,7 +29,7 @@ RUN set -ex \
     && locale-gen en_US.UTF-8 \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
-    && pip install -r requirements.txt \
+    && pip install --no-deps -r requirements.txt \
     && rm requirements.txt \
     && rm pandoc.deb.sha256 \
     && rm get-pip-21.3.1.py \

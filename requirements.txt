@@ -39,6 +39,8 @@ pytest-xdist==2.5.0
 # Support packages for other users
 wheel==0.37.1
 # All remaining dependencies are also pinned for image building and testing.
+# This ensures that new python packages are not introduced into the base image
+# without review.
 aiosignal==1.2.0
 antlr4-python3-runtime==4.8
 appdirs==1.4.4
