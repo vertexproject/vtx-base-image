@@ -1,0 +1,42 @@
+version: 2
+
+docker_test_steps:  &docker_test_steps
+  steps:
+    - checkout
+    - run:
+        name: setup test images and run tests
+        command: |
+          docker build -t syntestimage:"$DIRNAME"-regular -f ./"$DIRNAME"/Dockerfile .
+          docker run --rm syntestimage:"$DIRNAME"-regular python -m pip freeze
+          printf "FROM syntestimage:"$DIRNAME"-regular\n\n" > test/Dockerfile_"$DIRNAME"
+          cat test/Dockerfile >> test/Dockerfile_"$DIRNAME"
+          docker build -t syntestimage:"$DIRNAME"-test -f test/Dockerfile_"$DIRNAME" ./test
+          docker run --rm --network host -e "SYN_LOG_LEVEL=DEBUG" syntestimage:"$DIRNAME"-test 2>&1
+
+jobs:
+
+  test_37:
+    machine: true
+    environment:
+      DIRNAME: python37
+    <<: *docker_test_steps
+
+  test_38:
+    machine: true
+    environment:
+      DIRNAME: python38
+    <<: *docker_test_steps
+
+  test_310:
+    machine: true
+    environment:
+      DIRNAME: python310
+    <<: *docker_test_steps
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - test_37
+      - test_38
+      - test_310
