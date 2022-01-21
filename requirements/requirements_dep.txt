@@ -29,7 +29,7 @@ pycparser==2.21
 pyparsing==3.0.6
 pyrsistent==0.18.1
 pytest-forked==1.4.0
-python-socks==1.2.4
+python-socks==2.0.2
 requests==2.27.1
 requests-cache==0.9.1
 rfc3339-validator==0.1.4
