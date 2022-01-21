@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
 COPY get-pip-21.3.1.py get-pip-21.3.1.py
-COPY requirements.txt requirements.txt
 COPY pandoc.deb.sha256 pandoc.deb.sha256
+COPY requirements requirements
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
@@ -24,10 +24,8 @@ RUN set -ex \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
-    && apt remove -y curl software-properties-common \
+    && apt remove -y software-properties-common \
     && apt autoremove -y \
-    && apt-get clean && apt-get purge \
-    && rm -rf /var/lib/apt/lists/* \
     && cat get-pip-21.3.1.py | python \
     && sha256sum --check pandoc.deb.sha256 \
     && dpkg -i pandoc-amd64.deb \
@@ -35,8 +33,12 @@ RUN set -ex \
     && locale-gen en_US.UTF-8 \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
-    && pip install --no-deps -r requirements.txt \
-    && rm requirements.txt \
+    && mv requirements/requirements_310.txt requirements/requirements_specific.txt \
+    && pip install --no-deps -r requirements/requirements.txt \
+    && rm -rf requirements \
+    && apt remove -y build-essential \
+    && apt-get clean && apt-get purge \
+    && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
     && rm get-pip-21.3.1.py
 

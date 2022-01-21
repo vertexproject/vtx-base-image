@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
 COPY get-pip-21.3.1.py get-pip-21.3.1.py
-COPY requirements.txt requirements.txt
 COPY pandoc.deb.sha256 pandoc.deb.sha256
+COPY requirements requirements
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
@@ -35,8 +35,9 @@ RUN set -ex \
     && locale-gen en_US.UTF-8 \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
-    && pip install --no-deps -r requirements.txt \
-    && rm requirements.txt \
+    && mv requirements/requirements_37.txt requirements/requirements_specific.txt \
+    && pip install --no-deps -r requirements/requirements.txt \
+    && rm -rf requirements \
     && rm pandoc.deb.sha256 \
     && rm get-pip-21.3.1.py
 
