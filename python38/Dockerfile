@@ -8,6 +8,7 @@ ENV PYTHONUNBUFFERED 1
 COPY get-pip-21.3.1.py get-pip-21.3.1.py
 COPY requirements.txt requirements.txt
 COPY pandoc.deb.sha256 pandoc.deb.sha256
+COPY requirements_38.txt requirements_specific.txt
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages

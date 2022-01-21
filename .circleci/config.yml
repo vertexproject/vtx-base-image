@@ -37,6 +37,6 @@ workflows:
   version: 2
   run_tests:
     jobs:
-#      - test_37
-#      - test_38
+      - test_37
+      - test_38
       - test_310

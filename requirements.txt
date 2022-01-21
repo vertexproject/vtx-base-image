@@ -88,3 +88,5 @@ webcolors==1.11.1
 wrapt==1.13.3
 yarl==1.7.2
 zipp==3.7.0
+# This file is mapped into each container and may be empty
+-r requirements_specific.txt
