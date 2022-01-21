@@ -1,0 +1,7 @@
+# Map in several discrete requirements files. This really helps reduce some
+# git merge related issues which crop in practice.
+-r requirements_synapse.txt
+-r requirements_dev.txt
+-r requirements_dep.txt
+# This file is mapped into each container and may be empty
+-r requirements_specific.txt
