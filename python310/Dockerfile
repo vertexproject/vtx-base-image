@@ -39,7 +39,6 @@ RUN set -ex \
     && apt remove -y build-essential \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
-    && rm requirements.txt \
     && rm pandoc.deb.sha256 \
     && rm get-pip-21.3.1.py
 
