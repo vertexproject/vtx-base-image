@@ -7,7 +7,7 @@ The Docker containers built from this repository do NOT have Synapse installed i
 dependencies and updated system packages, to ensure that Synapse is running with the latest updates.  Integrations with
 pyup.io allow us to know right away when a third party module make break some functionality in Synapse.
 
-The following images are available for use from Docker, having been built on python3.x-slim docker images:
+The following images are available for use from Docker, having been built on Ubuntu docker images:
 
 - ``vertexproject/vtx-base-image:py310``
 - ``vertexproject/vtx-base-image:py38``
