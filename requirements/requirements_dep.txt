@@ -26,7 +26,7 @@ multidict==6.0.1
 pluggy==1.0.0
 py==1.11.0
 pycparser==2.21
-pyparsing==3.0.6
+pyparsing==3.0.7
 pyrsistent==0.18.1
 pytest-forked==1.4.0
 python-socks==1.2.4
