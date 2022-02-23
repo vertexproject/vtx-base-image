@@ -31,7 +31,7 @@ pyrsistent==0.18.1
 pytest-forked==1.4.0
 python-socks==1.2.4
 requests==2.27.1
-requests-cache==0.9.1
+requests-cache==0.9.3
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 simplejson==3.17.6
