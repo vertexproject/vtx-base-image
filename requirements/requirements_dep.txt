@@ -136,7 +136,7 @@ tomli==2.0.1
 ###################################
 # uri-template
 # stix2-validator -> jsonschema
-uri-template==1.1.0
+uri-template==1.2.0
 ###################################
 # requests-cache -> url-normalize
 # six -> url-normalize
