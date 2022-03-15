@@ -1,49 +1,163 @@
+######################################################################
 # All remaining dependencies are also pinned for image building and testing.
 # This ensures that new python packages are not introduced into the base image
 # without review.
+#
+# Packages should be marked and annotated which their upstream dependency when
+# added here. This makes it easier to check for upstream dependencies when
+# reviewing updates.
+###################################
+# aiohttp -> aiosignal
 aiosignal==1.2.0
+###################################
+# stix2-patterns -> antlr4-python3-runtime
 antlr4-python3-runtime==4.9.3
+###################################
+# stix2-validator -> appdirs
+# requests-cache -> appdirs
 appdirs==1.4.4
+###################################
+# isoduration -> arrow
 arrow==1.2.2
+###################################
+# aiohttp -> async-timeout
 async-timeout==4.0.2
+###################################
+# requests-cache -> attrs
+# jsonschema -> attrs
+# cattrs -> attrs
+# aiohttp -> attrs
+# aiohttp-socks -> attrs
 attrs==21.4.0
+###################################
+# requests-cache -> cattrs
 cattrs==1.10.0
+###################################
+# requests -> certifi
 certifi==2021.10.8
+###################################
+# cryptography -> cffi
 cffi==1.15.0
+###################################
+# aiohttp -> charset-normalizer
+# requests -> charset-normalizer
 charset-normalizer==2.0.11
+###################################
+# stix2-validator -> colorama
 colorama==0.4.4
+###################################
+# stix2-validator -> cpe
 cpe==1.2.1
+###################################
+# pytest
 execnet==1.9.0
+###################################
+# jsonschema -> fqdn
 fqdn==1.5.1
+###################################
+# aiohttp -> frozenlist
+# aiosignal -> frozenlist
 frozenlist==1.3.0
+###################################
+# jsonschema -> importlib-resources
 importlib-resources==5.4.0
+###################################
+# pytest -> iniconfig
 iniconfig==1.1.1
+###################################
+# jsonschema -> isoduration
 isoduration==20.11.0
+###################################
+# jsonschema -> jsonpointer
 jsonpointer==2.2
+###################################
+# stix2-validator -> jsonschema
 jsonschema==4.4.0
+###################################
+# scalecodec -> more-itertools
 more-itertools==8.12.0
+###################################
+# aiohttp -> multidict
+# yarl -> multidict
 multidict==6.0.2
+###################################
+# pytest -> pluggy
 pluggy==1.0.0
+###################################
+# pytest -> py
 py==1.11.0
+###################################
+# cffi -> pycparser
 pycparser==2.21
+###################################
+# packaging -> pyparsing
 pyparsing==3.0.7
+###################################
+# jsonschema -> pyrsistent
 pyrsistent==0.18.1
+###################################
+# pytest
 pytest-forked==1.4.0
+###################################
+# aiotthp-socks -> python-socks
 python-socks==1.2.4
+###################################
+# stix2-validator -> requests
+# scalecodec -> requests
+# requests-cache -> requests
 requests==2.27.1
+###################################
+# stix2-validator -> requests-cache
 requests-cache==0.9.1
+###################################
+# jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
+###################################
+# jsonschema -> rfc3986-validator
 rfc3986-validator==0.1.1
+###################################
+# stix2-validator -> simplejson
 simplejson==3.17.6
+###################################
+# vcrpy -> six
+# pyopenssl -> six
+# python-dateutil -> six
+# stix2-patterns -> six
 six==1.16.0
+###################################
+# stix2-validator -> stix2-patterns
 stix2-patterns==1.3.2
+###################################
+# pip -> toml
 toml==0.10.2
+###################################
+# pytest -> tomli
 tomli==2.0.1
+###################################
+# uri-template
+# stix2-validator -> jsonschema
 uri-template==1.1.0
+###################################
+# requests-cache -> url-normalize
+# six -> url-normalize
 url-normalize==1.4.3
+###################################
+# requests -> urllib3
+# requests-cache -> urllib3
 urllib3==1.26.8
+###################################
+# prompt-toolkit -> wcwidth
 wcwidth==0.2.5
+###################################
+# jsonschema -> webcolors
 webcolors==1.11.1
+###################################
+# vcrpy -> wrapt
 wrapt==1.13.3
+###################################
+# vcrpy -> yarl
+# aiohttp -> yarl
 yarl==1.7.2
+###################################
+# importlib-resources -> zipp
 zipp==3.7.0
