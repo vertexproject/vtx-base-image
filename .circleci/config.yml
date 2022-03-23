@@ -17,21 +17,21 @@ jobs:
 
   test_37:
     machine:
-      - image: ubuntu-2004:current
+      image: ubuntu-2004:current
     environment:
       DIRNAME: python37
     <<: *docker_test_steps
 
   test_38:
     machine:
-      - image: ubuntu-2004:current
+      image: ubuntu-2004:current
     environment:
       DIRNAME: python38
     <<: *docker_test_steps
 
   test_310:
     machine:
-      - image: ubuntu-2004:current
+      image: ubuntu-2004:current
     environment:
       DIRNAME: python310
     <<: *docker_test_steps
