@@ -16,19 +16,22 @@ docker_test_steps:  &docker_test_steps
 jobs:
 
   test_37:
-    machine: true
+    machine:
+      - image: ubuntu-2004:current
     environment:
       DIRNAME: python37
     <<: *docker_test_steps
 
   test_38:
-    machine: true
+    machine:
+      - image: ubuntu-2004:current
     environment:
       DIRNAME: python38
     <<: *docker_test_steps
 
   test_310:
-    machine: true
+    machine:
+      - image: ubuntu-2004:current
     environment:
       DIRNAME: python310
     <<: *docker_test_steps
