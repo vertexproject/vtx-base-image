@@ -69,7 +69,7 @@ iniconfig==1.1.1
 isoduration==20.11.0
 ###################################
 # jsonschema -> jsonpointer
-jsonpointer==2.2
+jsonpointer==2.3
 ###################################
 # stix2-validator -> jsonschema
 jsonschema==4.4.0
