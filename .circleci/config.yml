@@ -7,7 +7,7 @@ docker_test_steps:  &docker_test_steps
         name: setup test images and run tests
         command: |
           docker build -t syntestimage:"$DIRNAME"-regular -f ./"$DIRNAME"/Dockerfile .
-          docker run --rm syntestimage:"$DIRNAME"-regular python -m pip freeze
+          docker run --rm syntestimage:"$DIRNAME"-regular python3 -m pip freeze
           printf "FROM syntestimage:"$DIRNAME"-regular\n\n" > test/Dockerfile_"$DIRNAME"
           cat test/Dockerfile >> test/Dockerfile_"$DIRNAME"
           docker build -t syntestimage:"$DIRNAME"-test -f test/Dockerfile_"$DIRNAME" ./test
