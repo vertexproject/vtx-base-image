@@ -31,8 +31,8 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     && mv requirements/requirements_38.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
-    && groupadd -g 9999 synuser \
-    && useradd -m -u 9999 -g synuser synuser \
+    && groupadd -r -g 999 synuser \
+    && useradd -r --home-dir=/home/synuser -u 999 -g synuser synuser \
     && rm -rf requirements \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
