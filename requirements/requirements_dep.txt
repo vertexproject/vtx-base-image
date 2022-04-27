@@ -60,7 +60,7 @@ fqdn==1.5.1
 frozenlist==1.3.0
 ###################################
 # jsonschema -> importlib-resources
-importlib-resources==5.4.0
+importlib-resources==5.6.0
 ###################################
 # pytest -> iniconfig
 iniconfig==1.1.1
@@ -69,7 +69,7 @@ iniconfig==1.1.1
 isoduration==20.11.0
 ###################################
 # jsonschema -> jsonpointer
-jsonpointer==2.2
+jsonpointer==2.3
 ###################################
 # stix2-validator -> jsonschema
 jsonschema==4.4.0
@@ -91,7 +91,7 @@ py==1.11.0
 pycparser==2.21
 ###################################
 # packaging -> pyparsing
-pyparsing==3.0.7
+pyparsing==3.0.8
 ###################################
 # jsonschema -> pyrsistent
 pyrsistent==0.18.1
@@ -160,4 +160,4 @@ wrapt==1.14.0
 yarl==1.7.2
 ###################################
 # importlib-resources -> zipp
-zipp==3.7.0
+zipp==3.8.0
