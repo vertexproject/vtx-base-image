@@ -5,7 +5,7 @@ MAINTAINER vEpiphyte <epiphyte@vertex.link>
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
-COPY get-pip-21.3.1.py get-pip-21.3.1.py
+COPY get-pip-22.0.4.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 # apt get clean / update / upgrade / install required packages / clean up
@@ -21,7 +21,7 @@ RUN set -ex \
     && apt-get install --no-install-recommends -y locales curl tini python3.8-dev python3.8-full \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1 \
-    && cat get-pip-21.3.1.py | python \
+    && cat get-pip.py | python \
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
     && dpkg -i pandoc-amd64.deb \
@@ -31,9 +31,12 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     && mv requirements/requirements_38.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
+    && groupadd -g 9999 synuser \
+    && useradd -m -u 9999 -g synuser synuser \
     && rm -rf requirements \
     && rm pandoc.deb.sha256 \
-    && rm get-pip-21.3.1.py \
+    && rm pandoc.deb \
+    && rm get-pip.py \
     && apt remove -y curl \
     && apt autoremove -y \
     && apt-get clean && apt-get purge \
