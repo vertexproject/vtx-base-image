@@ -35,7 +35,7 @@ RUN set -ex \
     && useradd -m -u 9999 -g synuser synuser \
     && rm -rf requirements \
     && rm pandoc.deb.sha256 \
-    && rm pandoc.deb \
+    && rm pandoc-amd64.deb \
     && rm get-pip.py \
     && apt remove -y curl \
     && apt autoremove -y \

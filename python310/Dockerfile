@@ -42,7 +42,7 @@ RUN set -ex \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
-    && rm pandoc.deb \
+    && rm pandoc-amd64.deb \
     && rm get-pip.py
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
