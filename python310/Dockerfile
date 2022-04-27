@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 COPY get-pip-22.0.4.py get-pip.py
 COPY pandoc.tar.gz.sha256 pandoc.tar.gz.sha256
 COPY requirements requirements
-# apt get clean / update / upgrade / install required packages / clean up
+# apk get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
 #  Since we are using --no-deps if a package has a missing dependency here,
