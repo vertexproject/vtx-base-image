@@ -32,7 +32,9 @@ RUN set -ex \
     && mv requirements/requirements_38.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
     && groupadd -r -g 999 synuser \
-    && useradd -r --home-dir=/home/synuser -u 999 -g synuser synuser \
+    && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
+    && mkdir -p /home/synuser \
+    && chown synuser:synuser /home/synuser \
     && rm -rf requirements \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \

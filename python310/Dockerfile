@@ -36,7 +36,9 @@ RUN set -ex \
     && mv requirements/requirements_310.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
     && groupadd -g 999 synuser \
-    && useradd -r --home-dir=/home/synuser -u 999 -g synuser synuser \
+    && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
+    && mkdir -p /home/synuser \
+    && chown synuser:synuser /home/synuser \
     && rm -rf requirements \
     && apt remove -y build-essential \
     && apt-get clean && apt-get purge \
