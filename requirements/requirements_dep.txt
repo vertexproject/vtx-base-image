@@ -91,7 +91,7 @@ py==1.11.0
 pycparser==2.21
 ###################################
 # packaging -> pyparsing
-pyparsing==3.0.8
+pyparsing==3.0.9
 ###################################
 # jsonschema -> pyrsistent
 pyrsistent==0.18.1
