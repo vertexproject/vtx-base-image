@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM debian:unstable
 
 MAINTAINER vEpiphyte <epiphyte@vertex.link>
 
@@ -18,12 +18,10 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano software-properties-common build-essential \
-    && add-apt-repository -y ppa:deadsnakes/ppa \
-    && apt-get install -y python3.10-full python3.10-dev \
+    && apt-get install -y locales curl tini nano python3-dev \
+#    && apt-get install -y locales curl tini nano software-properties-common build-essential \
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
-    && apt remove -y curl software-properties-common \
-    && apt autoremove -y \
+    && apt remove -y curl \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
     && cat get-pip.py | python \
@@ -40,7 +38,7 @@ RUN set -ex \
     && mkdir -p /home/synuser \
     && chown synuser:synuser /home/synuser \
     && rm -rf requirements \
-    && apt remove -y build-essential \
+    && apt autoremove -y \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
