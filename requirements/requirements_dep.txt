@@ -105,7 +105,7 @@ python-socks==1.2.4
 # stix2-validator -> requests
 # scalecodec -> requests
 # requests-cache -> requests
-requests==2.27.1
+requests==2.28.0
 ###################################
 # stix2-validator -> requests-cache
 requests-cache==0.9.3
