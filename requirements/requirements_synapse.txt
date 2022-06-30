@@ -16,7 +16,7 @@ lark==1.1.2
 packaging==21.3
 fastjsonschema==2.15.3
 stix2-validator==3.0.2
-vcrpy==4.1.1
+vcrpy==4.2.0
 base58==2.1.1
 python-bitcoinlib==0.11.0
 typing-extensions==4.1.1
