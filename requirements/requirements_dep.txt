@@ -156,11 +156,11 @@ urllib3==1.26.9
 # prompt-toolkit -> wcwidth
 wcwidth==0.2.5
 ###################################
-# jsonschema -> webencodings
-webencodings==0.5.1
+# jsonschema -> webcolors
+webcolors==1.12
 ###################################
-# html5lib -> html5lib
-html5lib==1.1
+# html5lib -> webencodings
+webencodings==0.5.1
 ###################################
 # vcrpy -> wrapt
 wrapt==1.14.0
