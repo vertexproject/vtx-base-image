@@ -159,7 +159,7 @@ wcwidth==0.2.5
 # jsonschema -> webcolors
 webcolors==1.12
 ###################################
-# jsonschema -> webencodings
+# html5lib -> webencodings
 webencodings==0.5.1
 ###################################
 # vcrpy -> wrapt
