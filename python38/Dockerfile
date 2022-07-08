@@ -18,7 +18,7 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install --no-install-recommends -y locales curl tini python3.8-dev python3.8-full \
+    && apt-get install --no-install-recommends -y locales curl tini nano python3.8-dev python3.8-full \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1 \
     && cat get-pip.py | python \
