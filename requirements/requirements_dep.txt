@@ -34,14 +34,14 @@ attrs==21.4.0
 cattrs==1.10.0
 ###################################
 # requests -> certifi
-certifi==2021.10.8
+certifi==2022.6.15
 ###################################
 # cryptography -> cffi
 cffi==1.15.0
 ###################################
 # aiohttp -> charset-normalizer
 # requests -> charset-normalizer
-charset-normalizer==2.0.11
+charset-normalizer==2.1.0
 ###################################
 # stix2-validator -> colorama
 colorama==0.4.4
@@ -59,8 +59,11 @@ fqdn==1.5.1
 # aiosignal -> frozenlist
 frozenlist==1.3.0
 ###################################
+# beautifulsoup4 -> html5lib
+html5lib==1.1
+###################################
 # jsonschema -> importlib-resources
-importlib-resources==5.6.0
+importlib-resources==5.8.0
 ###################################
 # pytest -> iniconfig
 iniconfig==1.1.1
@@ -72,7 +75,7 @@ isoduration==20.11.0
 jsonpointer==2.3
 ###################################
 # stix2-validator -> jsonschema
-jsonschema==4.4.0
+jsonschema==4.6.2
 ###################################
 # scalecodec -> more-itertools
 more-itertools==8.13.0
@@ -105,10 +108,10 @@ python-socks==1.2.4
 # stix2-validator -> requests
 # scalecodec -> requests
 # requests-cache -> requests
-requests==2.27.1
+requests==2.28.1
 ###################################
 # stix2-validator -> requests-cache
-requests-cache==0.9.3
+requests-cache==0.9.5
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
@@ -123,7 +126,11 @@ simplejson==3.17.6
 # pyopenssl -> six
 # python-dateutil -> six
 # stix2-patterns -> six
+# html5lib -> six
 six==1.16.0
+###################################
+# beautifulsoup4 -> soupsieve
+soupsieve==2.3.2.post1
 ###################################
 # stix2-validator -> stix2-patterns
 stix2-patterns==1.3.2
@@ -150,7 +157,10 @@ urllib3==1.26.9
 wcwidth==0.2.5
 ###################################
 # jsonschema -> webcolors
-webcolors==1.11.1
+webcolors==1.12
+###################################
+# html5lib -> webencodings
+webencodings==0.5.1
 ###################################
 # vcrpy -> wrapt
 wrapt==1.14.0

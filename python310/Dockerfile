@@ -18,7 +18,7 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini software-properties-common build-essential \
+    && apt-get install -y locales curl tini nano software-properties-common build-essential \
     && add-apt-repository -y ppa:deadsnakes/ppa \
     && apt-get install -y python3.10-full python3.10-dev \
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
