@@ -28,7 +28,7 @@ async-timeout==4.0.2
 # cattrs -> attrs
 # aiohttp -> attrs
 # aiohttp-socks -> attrs
-attrs==21.4.0
+attrs==22.1.0
 ###################################
 # requests-cache -> cattrs
 cattrs==1.10.0
