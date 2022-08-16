@@ -75,7 +75,7 @@ isoduration==20.11.0
 jsonpointer==2.3
 ###################################
 # stix2-validator -> jsonschema
-jsonschema==4.7.2
+jsonschema==4.10.0
 ###################################
 # scalecodec -> more-itertools
 more-itertools==8.13.0
