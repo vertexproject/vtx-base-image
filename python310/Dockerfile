@@ -34,6 +34,7 @@ RUN set -ex \
     # Install our packages
     && mv requirements/requirements_310.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
+    # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
     && mkdir -p /home/synuser \
@@ -41,8 +42,9 @@ RUN set -ex \
     # Cleanup
     && rm -rf requirements \
     && apt-get remove -y curl \
-#    && apt remove --auto-remove perl-base \
-    && apt autoremove -y \
+    # Slimmed down version
+    && apt-get remove -y --allow-remove-essential e2fsprogs \
+    && apt-get autoremove -y \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
