@@ -18,7 +18,7 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano python3.10 \
+    && apt-get install -y locales curl tini nano python3.10 python3.10-distutils \
     # Setup python /pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
     && cat get-pip.py | python \
