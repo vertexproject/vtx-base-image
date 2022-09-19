@@ -18,7 +18,7 @@ antlr4-python3-runtime==4.9.3
 appdirs==1.4.4
 ###################################
 # isoduration -> arrow
-arrow==1.2.2
+arrow==1.2.3
 ###################################
 # aiohttp -> async-timeout
 async-timeout==4.0.2
@@ -34,7 +34,7 @@ attrs==21.4.0
 cattrs==1.10.0
 ###################################
 # requests -> certifi
-certifi==2022.6.15
+certifi==2022.6.15.1
 ###################################
 # cryptography -> cffi
 cffi==1.15.0
