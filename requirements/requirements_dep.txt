@@ -170,4 +170,4 @@ wrapt==1.14.1
 yarl==1.7.2
 ###################################
 # importlib-resources -> zipp
-zipp==3.8.1
+zipp==3.10.0
