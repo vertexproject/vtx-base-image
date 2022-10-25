@@ -44,7 +44,7 @@ cffi==1.15.0
 charset-normalizer==2.1.0
 ###################################
 # stix2-validator -> colorama
-colorama==0.4.4
+colorama==0.4.6
 ###################################
 # stix2-validator -> cpe
 cpe==1.2.1
