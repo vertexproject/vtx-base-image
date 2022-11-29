@@ -97,7 +97,7 @@ pycparser==2.21
 pyparsing==3.0.9
 ###################################
 # jsonschema -> pyrsistent
-pyrsistent==0.18.1
+pyrsistent==0.19.2
 ###################################
 # pytest
 pytest-forked==1.4.0
