@@ -52,6 +52,9 @@ cpe==1.2.1
 # pytest
 execnet==1.9.0
 ###################################
+# pytest
+exceptiongroup==1.0.4
+###################################
 # jsonschema -> fqdn
 fqdn==1.5.1
 ###################################
@@ -83,12 +86,6 @@ more-itertools==8.13.0
 # aiohttp -> multidict
 # yarl -> multidict
 multidict==6.0.2
-###################################
-# pytest -> pluggy
-pluggy==1.0.0
-###################################
-# pytest -> py
-py==1.11.0
 ###################################
 # cffi -> pycparser
 pycparser==2.21
