@@ -87,6 +87,9 @@ more-itertools==8.13.0
 # yarl -> multidict
 multidict==6.0.2
 ###################################
+# pytest -> pluggy
+pluggy==1.0.0
+###################################
 # cffi -> pycparser
 pycparser==2.21
 ###################################
