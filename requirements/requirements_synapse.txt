@@ -20,7 +20,7 @@ vcrpy==4.1.1
 base58==2.1.1
 python-bitcoinlib==0.11.0
 typing-extensions==4.3.0
-scalecodec==1.0.37
+scalecodec==1.1.2
 cbor2==5.4.5
 bech32==1.2.0
 aioimaplib==1.0.1
