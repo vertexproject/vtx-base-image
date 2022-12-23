@@ -50,7 +50,7 @@ colorama==0.4.6
 cpe==1.2.1
 ###################################
 # pytest -> py
-exceptiongroup==1.0.4
+exceptiongroup==1.1.0
 ###################################
 # pytest
 execnet==1.9.0
