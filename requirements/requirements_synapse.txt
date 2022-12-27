@@ -21,11 +21,11 @@ base58==2.1.1
 python-bitcoinlib==0.11.0
 typing-extensions==4.3.0
 scalecodec==1.0.37
-cbor2==5.4.2.post1
+cbor2==5.4.5
 bech32==1.2.0
 aioimaplib==1.0.1
 oauthlib==3.2.1
-pycryptodome==3.15.0
+pycryptodome==3.16.0
 idna==3.3
 python-dateutil==2.8.2
 pytz==2022.1
