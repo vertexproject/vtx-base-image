@@ -49,11 +49,11 @@ colorama==0.4.6
 # stix2-validator -> cpe
 cpe==1.2.1
 ###################################
-# pytest -> py
-exceptiongroup==1.0.4
-###################################
 # pytest
 execnet==1.9.0
+###################################
+# pytest
+exceptiongroup==1.0.4
 ###################################
 # jsonschema -> fqdn
 fqdn==1.5.1
