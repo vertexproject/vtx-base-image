@@ -69,7 +69,7 @@ html5lib==1.1
 importlib-resources==5.10.0
 ###################################
 # pytest -> iniconfig
-iniconfig==1.1.1
+iniconfig==2.0.0
 ###################################
 # jsonschema -> isoduration
 isoduration==20.11.0
