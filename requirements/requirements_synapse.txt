@@ -13,7 +13,7 @@ PyYAML==6.0
 prompt-toolkit==3.0.33
 Pygments==2.12.0
 lark==1.1.2
-packaging==21.3
+packaging==23.0
 fastjsonschema==2.15.3
 stix2-validator==3.0.2
 vcrpy==4.1.1
