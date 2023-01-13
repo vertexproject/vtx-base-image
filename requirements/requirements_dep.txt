@@ -28,6 +28,7 @@ async-timeout==4.0.2
 # cattrs -> attrs
 # aiohttp -> attrs
 # aiohttp-socks -> attrs
+# stix2-validator -> attrs ( listed as a dep, not used in code)
 attrs==21.4.0
 ###################################
 # requests-cache -> cattrs
