@@ -29,4 +29,4 @@ pycryptodome==3.16.0
 idna==3.3
 python-dateutil==2.8.2
 pytz==2022.1
-beautifulsoup4==4.11.1
+beautifulsoup4==4.11.2
