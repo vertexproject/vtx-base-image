@@ -101,7 +101,7 @@ pyparsing==3.0.9
 pyrsistent==0.19.2
 ###################################
 # pytest
-pytest-forked==1.4.0
+pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
 python-socks==2.1.1
