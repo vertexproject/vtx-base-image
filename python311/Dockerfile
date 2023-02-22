@@ -20,8 +20,8 @@ RUN set -ex \
     && apt-get -y upgrade \
     && apt-get install -y locales curl tini nano python3.10 python3.10-distutils \
     # Setup python /pip
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && cat get-pip.py | python \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
@@ -33,7 +33,7 @@ RUN set -ex \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
-    && mv requirements/requirements_310.txt requirements/requirements_specific.txt \
+    && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
