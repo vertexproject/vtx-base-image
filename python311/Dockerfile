@@ -18,11 +18,12 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano python3.10 python3.10-distutils \
+    && apt-get install -y locales curl tini nano python3.11 python3.11-distutils \
+    && apt-get install -y build-essential python3.11-dev \
     # Setup python /pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
-    && cat get-pip.py | python \
+    && python get-pip.py "pip < 23.0.0" \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -44,6 +45,7 @@ RUN set -ex \
     && rm -rf requirements \
     && apt-get remove -y curl \
     # Slimmed down version
+    && apt-get remove -y build-essential python3.11-dev \
     && apt-get remove -y --allow-remove-essential e2fsprogs \
     && apt-get autoremove -y \
     && apt-get clean && apt-get purge \
