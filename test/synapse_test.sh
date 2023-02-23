@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 apt update
 apt install -y git
-git clone https://github.com/vertexproject/synapse.git -v --depth 1 ./synapse
+git clone https://github.com/vertexproject/synapse.git -v --depth 1 --branch feat_python311 ./synapse
 cd ./synapse
 which python3
 which python
