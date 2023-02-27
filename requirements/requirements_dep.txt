@@ -82,7 +82,7 @@ jsonpointer==2.3
 jsonschema==4.7.2
 ###################################
 # scalecodec -> more-itertools
-more-itertools==8.13.0
+more-itertools==9.1.0
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
