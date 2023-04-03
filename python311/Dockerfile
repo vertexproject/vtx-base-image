@@ -5,7 +5,7 @@ MAINTAINER vEpiphyte <epiphyte@vertex.link>
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
-COPY get-pip-22.3.1.py get-pip.py
+COPY get-pip-23.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 # apt get clean / update / upgrade / install required packages / clean up
