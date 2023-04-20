@@ -35,7 +35,7 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
-    && pip install -r requirements/requirements.txt --break-system-packages \
+    && pip install --no-deps -r requirements/requirements.txt --break-system-packages \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
