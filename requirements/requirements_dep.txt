@@ -29,7 +29,7 @@ async-timeout==4.0.2
 # aiohttp -> attrs
 # aiohttp-socks -> attrs
 # stix2-validator -> attrs ( listed as a dep, not used in code)
-attrs==23.1.0
+attrs==21.4.0
 ###################################
 # requests-cache -> cattrs
 cattrs==22.2.0
@@ -87,6 +87,9 @@ more-itertools==9.1.0
 # aiohttp -> multidict
 # yarl -> multidict
 multidict==6.0.4
+###################################
+# requests-cache -> platformdirs
+platformdirs==3.2.0
 ###################################
 # pytest -> pluggy
 pluggy==1.0.0
