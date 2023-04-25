@@ -168,7 +168,7 @@ wrapt==1.14.1
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.8.2
+yarl==1.9.2
 ###################################
 # importlib-resources -> zipp
 zipp==3.11.0
