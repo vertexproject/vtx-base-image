@@ -15,12 +15,6 @@ requirements:
   - requirements/requirements_dep.txt:
       update: all
       pin: True
-  - requirements/requirements_37.txt:
-      update: all
-      pin: True
-  - requirements/requirements_38.txt:
-      update: all
-      pin: True
-  - requirements/requirements_39.txt:
+  - requirements/requirements_311.txt:
       update: all
       pin: True
