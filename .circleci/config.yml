@@ -15,23 +15,15 @@ docker_test_steps:  &docker_test_steps
 
 jobs:
 
-  test_38:
+  test_311:
     machine:
       image: ubuntu-2204:current
     environment:
-      DIRNAME: python38
-    <<: *docker_test_steps
-
-  test_310:
-    machine:
-      image: ubuntu-2204:current
-    environment:
-      DIRNAME: python310
+      DIRNAME: python311
     <<: *docker_test_steps
 
 workflows:
   version: 2
   run_tests:
     jobs:
-      - test_38
-      - test_310
+      - test_311
