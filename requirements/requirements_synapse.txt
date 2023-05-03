@@ -12,7 +12,7 @@ regex==2023.3.23
 PyYAML==6.0
 prompt-toolkit==3.0.38
 Pygments==2.12.0
-lark==1.1.2
+lark==1.1.5
 packaging==21.3
 fastjsonschema==2.15.3
 stix2-validator==3.1.3
