@@ -8,6 +8,7 @@ ENV PYTHONUNBUFFERED 1
 COPY get-pip-23.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
+COPY python311/rmlist.txt rmlist.txt
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
@@ -52,6 +53,8 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
-    && rm get-pip.py
+    && rm get-pip.py \
+    && while read line; do if [ -f $line ]; then echo "Removing line ${line}" && rm $line; else echo "File not present: ${line}"; fi done < rmlist.txt \
+    && rm rmlist.txt
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
