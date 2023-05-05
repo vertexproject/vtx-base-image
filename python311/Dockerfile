@@ -54,7 +54,7 @@ RUN set -ex \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
     && rm get-pip.py \
-    && while read line; do if [ -e $line ]; then echo "Removing line ${line}" && rm $line; else echo "File not present: ${line}"; fi done < rmlist.txt \
+    && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "Path not present: ${path}"; fi done < rmlist.txt \
     && rm rmlist.txt
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
