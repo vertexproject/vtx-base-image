@@ -2,7 +2,7 @@
 # Code style checks
 pycodestyle==2.10.0
 # Test related packages
-coverage==7.2.5
+coverage==7.2.7
 codecov==2.1.13
 pytest==7.3.1
 pytest-cov==4.1.0
