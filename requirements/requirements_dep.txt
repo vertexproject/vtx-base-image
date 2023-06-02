@@ -32,7 +32,7 @@ async-timeout==4.0.2
 attrs==21.4.0
 ###################################
 # requests-cache -> cattrs
-cattrs==23.1.1
+cattrs==23.1.2
 ###################################
 # requests -> certifi
 certifi==2023.5.7
