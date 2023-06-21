@@ -92,7 +92,7 @@ multidict==6.0.4
 platformdirs==3.5.3
 ###################################
 # pytest -> pluggy
-pluggy==1.0.0
+pluggy==1.2.0
 ###################################
 # cffi -> pycparser
 pycparser==2.21
