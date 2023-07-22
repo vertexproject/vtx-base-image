@@ -7,4 +7,4 @@ codecov==2.1.13
 pytest==7.3.2
 pytest-cov==4.1.0
 # Support packages for other users
-wheel==0.40.0
+wheel==0.41.0
