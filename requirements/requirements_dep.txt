@@ -98,7 +98,7 @@ pluggy==1.0.0
 pycparser==2.21
 ###################################
 # packaging -> pyparsing
-pyparsing==3.0.9
+pyparsing==3.1.1
 ###################################
 # jsonschema -> pyrsistent
 pyrsistent==0.19.3
