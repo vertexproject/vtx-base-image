@@ -1,6 +1,6 @@
 # These files are all related to dev/test work.
 # Code style checks
-pycodestyle==2.10.0
+pycodestyle==2.11.0
 # Test related packages
 coverage==7.2.7
 codecov==2.1.13
