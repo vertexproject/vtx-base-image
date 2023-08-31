@@ -21,7 +21,7 @@ appdirs==1.4.4
 arrow==1.2.3
 ###################################
 # aiohttp -> async-timeout
-async-timeout==4.0.2
+async-timeout==4.0.3
 ###################################
 # requests-cache -> attrs
 # jsonschema -> attrs
