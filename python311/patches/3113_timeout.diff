@@ -1,0 +1,28 @@
+27a28,31
+>     """Asynchronous context manager for cancelling overdue coroutines.
+> 
+>     Use `timeout()` or `timeout_at()` rather than instantiating this class directly.
+>     """
+29a34,39
+>         """Schedule a timeout that will trigger at a given loop time.
+> 
+>         - If `when` is `None`, the timeout will never trigger.
+>         - If `when < loop.time()`, the timeout will trigger on the next
+>           iteration of the event loop.
+>         """
+36a47
+>         """Return the current deadline."""
+39a51
+>         """Reschedule the timeout."""
+74a87
+>         self._cancelling = self._task.cancelling()
+95,96c108,109
+<             if self._task.uncancel() == 0 and exc_type is exceptions.CancelledError:
+<                 # Since there are no outstanding cancel requests, we're
+---
+>             if self._task.uncancel() <= self._cancelling and exc_type is exceptions.CancelledError:
+>                 # Since there are no new cancel requests, we're
+98c111
+<                 raise TimeoutError
+---
+>                 raise TimeoutError from exc_val

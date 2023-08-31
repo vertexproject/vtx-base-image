@@ -9,6 +9,8 @@ COPY get-pip-23.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python311/rmlist.txt rmlist.txt
+COPY python311/patches patches
+
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
@@ -20,7 +22,7 @@ RUN set -ex \
     && apt-get update \
     && apt-get -y upgrade \
     && apt-get install -y locales curl tini nano python3.11 python3.11-distutils \
-    && apt-get install -y build-essential python3.11-dev \
+    && apt-get install -y build-essential python3.11-dev patch \
     # Setup python /pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
@@ -34,6 +36,8 @@ RUN set -ex \
     && locale-gen en_US.UTF-8 \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
+    # Apply out patches
+    && python patches/patcher.py \
     # Install our packages
     && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
     && pip install --no-deps -r requirements/requirements.txt --break-system-packages \
@@ -46,7 +50,7 @@ RUN set -ex \
     && rm -rf requirements \
     && apt-get remove -y curl \
     # Slimmed down version
-    && apt-get remove -y build-essential python3.11-dev \
+    && apt-get remove -y build-essential python3.11-dev patch \
     && apt-get remove -y --allow-remove-essential e2fsprogs \
     && apt-get autoremove -y \
     && apt-get clean && apt-get purge \
@@ -55,6 +59,7 @@ RUN set -ex \
     && rm pandoc-amd64.deb \
     && rm get-pip.py \
     && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
+    && rm -rf patches \
     && rm rmlist.txt
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
