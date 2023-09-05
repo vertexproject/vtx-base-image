@@ -28,5 +28,5 @@ oauthlib==3.2.2
 pycryptodome==3.18.0
 idna==3.4
 python-dateutil==2.8.2
-pytz==2023.3
+pytz==2023.3.post1
 beautifulsoup4==4.12.2
