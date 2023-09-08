@@ -107,7 +107,7 @@ pyrsistent==0.19.3
 pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.2.0
+python-socks==2.4.1
 ###################################
 # stix2-validator -> requests
 # scalecodec -> requests
