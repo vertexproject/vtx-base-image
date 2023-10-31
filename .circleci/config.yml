@@ -1,29 +1,103 @@
-version: 2
+version: 2.1
 
-docker_test_steps:  &docker_test_steps
+docker_build_steps: &docker_build_steps
   steps:
     - checkout
     - run:
         name: setup test images and run tests
         command: |
-          docker build -t syntestimage:"$DIRNAME"-regular -f ./"$DIRNAME"/Dockerfile .
-          docker run --rm syntestimage:"$DIRNAME"-regular python -m pip freeze
-          printf "FROM syntestimage:"$DIRNAME"-regular\n\n" > test/Dockerfile_"$DIRNAME"
-          cat test/Dockerfile >> test/Dockerfile_"$DIRNAME"
-          docker build -t syntestimage:"$DIRNAME"-test -f test/Dockerfile_"$DIRNAME" ./test
-          docker run --rm --network host -e "SYN_LOG_LEVEL=DEBUG" syntestimage:"$DIRNAME"-test 2>&1
+          export DOCKER_BUILDKIT=1
+          export BUILDKIT_PROGRESS=plain
+          docker context create multi-arch-build
+          docker buildx create multi-arch-build --platform=linux/arm64/v8,linux/amd64 --use
+          docker buildx inspect --bootstrap
 
-jobs:
+          # produce multi-arch image for future publishing
 
-  test_311:
+          docker buildx build \
+              --platform=linux/amd64,linux/arm64/v8 \
+              --tag syntestimage:"${DIRNAME}"-regular \
+              --output type=oci,dest=syntestimage.oci \
+              --file ./"${DIRNAME}"/Dockerfile .
+
+          # use build cache to produce single-arch docker images:
+
+          docker buildx build \
+              --platform=linux/amd64 \
+              --tag syntestimage:"${DIRNAME}"-regular \
+              --output type=docker,dest=syntestimage.amd64.tar \
+              --file ./"${DIRNAME}"/Dockerfile .
+
+          docker buildx build \
+              --platform=linux/arm64/v8 \
+              --tag syntestimage:"${DIRNAME}"-regular \
+              --output type=docker,dest=syntestimage.arm64v8.tar \
+              --file ./"${DIRNAME}"/Dockerfile .
+
+    - save_cache:
+        key: syntestimage-{{ .Environment.DIRNAME }}-regular
+        paths:
+          - syntestimage.oci
+          - syntestimage.amd64.tar
+          - syntestimage.arm64v8.tar
+
+docker_test_steps:  &docker_test_steps
+  steps:
+    - checkout
+    - restore_cache:
+        key: syntestimage-{{ .Environment.DIRNAME }}-regular
+    - run:
+        name: setup test images and run tests
+        command: |
+          docker load -i syntestimage."${IMAGE_ARCH}".tar
+
+          docker run --rm syntestimage:"${DIRNAME}"-regular python -m pip freeze
+
+          printf "FROM syntestimage:""${DIRNAME}""-regular\n\n" > test/Dockerfile_"${DIRNAME}"
+          cat test/Dockerfile >> test/Dockerfile_"${DIRNAME}"
+          docker build --tag syntestimage:"${DIRNAME}"-test --file test/Dockerfile_"${DIRNAME}" ./test
+          docker run --rm --network host --env "SYN_LOG_LEVEL=DEBUG" syntestimage:"${DIRNAME}"-test 2>&1
+
+
+executors:
+  amd64:
     machine:
       image: ubuntu-2204:current
+
+  arm64:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: arm.medium
+
+
+jobs:
+  build_311:
+    executor: amd64
     environment:
       DIRNAME: python311
+    <<: *docker_build_steps
+
+  test_amd64_311:
+    executor: amd64
+    environment:
+      DIRNAME: python311
+      IMAGE_ARCH: amd64
+    <<: *docker_test_steps
+
+  test_arm64_311:
+    executor: arm64
+    environment:
+      DIRNAME: python311
+      IMAGE_ARCH: arm64v8
     <<: *docker_test_steps
 
 workflows:
-  version: 2
   run_tests:
     jobs:
-      - test_311
+      - build_311
+      - test_amd64_311:
+          requires:
+          - build_311
+      - test_arm64_311:
+          requires:
+          - build_311

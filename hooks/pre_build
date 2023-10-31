@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker context create multi-arch-build
+docker buildx create --platform=linux/arm64/v8,linux/amd64 --use multi-arch-build
+docker buildx inspect --bootstrap
