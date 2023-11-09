@@ -38,7 +38,7 @@ cattrs==23.1.2
 certifi==2023.7.22
 ###################################
 # cryptography -> cffi
-cffi==1.15.1
+cffi==1.16.0
 ###################################
 # aiohttp -> charset-normalizer
 # requests -> charset-normalizer
