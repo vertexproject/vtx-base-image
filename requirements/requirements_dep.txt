@@ -164,7 +164,7 @@ webcolors==1.13
 webencodings==0.5.1
 ###################################
 # vcrpy -> wrapt
-wrapt==1.15.0
+wrapt==1.16.0
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
