@@ -86,7 +86,7 @@ more-itertools==10.1.0
 multidict==6.0.4
 ###################################
 # requests-cache -> platformdirs
-platformdirs==3.11.0
+platformdirs==4.0.0
 ###################################
 # pytest -> pluggy
 pluggy==1.3.0
