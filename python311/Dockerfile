@@ -26,7 +26,7 @@ RUN set -ex \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && python get-pip.py --break-system-packages \
     # Install pandoc
-    && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/2.14.0.1/pandoc-2.14.0.1-1-amd64.deb \
+    && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
     && dpkg -i pandoc-amd64.deb \
     # Configure locales
