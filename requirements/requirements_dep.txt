@@ -109,7 +109,7 @@ python-socks==2.4.3
 requests==2.31.0
 ###################################
 # stix2-validator -> requests-cache
-requests-cache==1.1.0
+requests-cache==1.1.1
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
