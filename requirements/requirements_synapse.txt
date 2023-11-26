@@ -26,7 +26,7 @@ bech32==1.2.0
 aioimaplib==1.0.1
 oauthlib==3.2.2
 pycryptodome==3.19.0
-idna==3.4
+idna==3.6
 python-dateutil==2.8.2
 pytz==2023.3.post1
 beautifulsoup4==4.12.2
