@@ -54,7 +54,7 @@ cpe==1.2.1
 execnet==2.0.2
 ###################################
 # pytest
-exceptiongroup==1.1.3
+exceptiongroup==1.2.0
 ###################################
 # jsonschema -> fqdn
 fqdn==1.5.1
@@ -86,7 +86,7 @@ more-itertools==10.1.0
 multidict==6.0.4
 ###################################
 # requests-cache -> platformdirs
-platformdirs==4.0.0
+platformdirs==4.1.0
 ###################################
 # pytest -> pluggy
 pluggy==1.3.0
@@ -109,7 +109,7 @@ python-socks==2.4.3
 requests==2.31.0
 ###################################
 # stix2-validator -> requests-cache
-requests-cache==1.1.0
+requests-cache==1.1.1
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
@@ -155,7 +155,7 @@ url-normalize==1.4.3
 urllib3==2.0.7
 ###################################
 # prompt-toolkit -> wcwidth
-wcwidth==0.2.10
+wcwidth==0.2.12
 ###################################
 # jsonschema -> webcolors
 webcolors==1.13
@@ -168,4 +168,4 @@ wrapt==1.15.0
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.9.2
+yarl==1.9.3
