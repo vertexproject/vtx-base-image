@@ -20,6 +20,9 @@ appdirs==1.4.4
 # isoduration -> arrow
 arrow==1.3.0
 ###################################
+# python-socks -> async-timeout
+async-timeout==4.0.3
+###################################
 # requests-cache -> attrs
 # jsonschema -> attrs
 # cattrs -> attrs
@@ -58,7 +61,7 @@ fqdn==1.5.1
 ###################################
 # aiohttp -> frozenlist
 # aiosignal -> frozenlist
-frozenlist==1.4.0
+frozenlist==1.4.1
 ###################################
 # beautifulsoup4 -> html5lib
 html5lib==1.1
