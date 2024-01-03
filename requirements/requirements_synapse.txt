@@ -14,7 +14,7 @@ prompt-toolkit==3.0.43
 Pygments==2.16.1
 lark==1.1.8
 packaging==23.2
-fastjsonschema==2.19.0
+fastjsonschema==2.19.1
 stix2-validator==3.1.4
 vcrpy==5.1.0
 base58==2.1.1
