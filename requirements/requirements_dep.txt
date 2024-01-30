@@ -152,7 +152,7 @@ url-normalize==1.4.3
 ###################################
 # requests -> urllib3
 # requests-cache -> urllib3
-urllib3==2.1.0
+urllib3==2.2.0
 ###################################
 # prompt-toolkit -> wcwidth
 wcwidth==0.2.12
