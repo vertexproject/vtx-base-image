@@ -83,7 +83,7 @@ more-itertools==10.1.0
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
-multidict==6.0.4
+multidict==6.0.5
 ###################################
 # requests-cache -> platformdirs
 platformdirs==4.1.0
