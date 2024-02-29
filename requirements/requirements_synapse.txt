@@ -19,7 +19,7 @@ stix2-validator==3.1.4
 vcrpy==5.1.0
 base58==2.1.1
 python-bitcoinlib==0.12.2
-typing-extensions==4.9.0
+typing-extensions==4.10.0
 scalecodec==1.2.7
 cbor2==5.6.2
 bech32==1.2.0
