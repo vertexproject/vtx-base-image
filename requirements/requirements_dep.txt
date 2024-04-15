@@ -85,9 +85,6 @@ pluggy==1.3.0
 # cffi -> pycparser
 pycparser==2.21
 ###################################
-# jsonschema -> pyrsistent
-pyrsistent==0.19.3
-###################################
 # pytest
 pytest-forked==1.6.0
 ###################################
