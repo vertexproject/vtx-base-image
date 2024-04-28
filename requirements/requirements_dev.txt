@@ -4,7 +4,7 @@ pycodestyle==2.11.1
 # Test related packages
 coverage==7.4.0
 codecov==2.1.13
-pytest==7.4.3
+pytest==8.2.0
 pytest-cov==4.1.0
 # Support packages for other users
 wheel==0.43.0
