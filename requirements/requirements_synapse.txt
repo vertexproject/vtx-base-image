@@ -11,7 +11,7 @@ lmdb==1.4.1
 regex==2024.4.16
 PyYAML==6.0.1
 prompt-toolkit==3.0.43
-Pygments==2.17.2
+Pygments==2.18.0
 lark==1.1.9
 packaging==23.2
 fastjsonschema==2.19.1
