@@ -96,7 +96,7 @@ referencing==0.34.0
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
-requests==2.31.0
+requests==2.32.3
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
