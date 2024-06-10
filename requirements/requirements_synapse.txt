@@ -21,7 +21,7 @@ base58==2.1.1
 python-bitcoinlib==0.12.2
 typing-extensions==4.9.0
 scalecodec==1.2.9
-cbor2==5.6.3
+cbor2==5.6.4
 bech32==1.2.0
 aioimaplib==1.0.1
 oauthlib==3.2.2
