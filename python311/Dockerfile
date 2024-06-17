@@ -24,7 +24,7 @@ RUN set -ex \
     # Setup python /pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
-    && python get-pip.py --break-system-packages \
+    && python get-pip.py --no-cache-dir --break-system-packages \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -36,7 +36,7 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
-    && pip install --no-deps -r requirements/requirements.txt --break-system-packages \
+    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt --break-system-packages \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
@@ -44,9 +44,7 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y curl \
-    # Slimmed down version
-    && apt-get remove -y build-essential python3.11-dev \
+    && apt-get remove -y curl build-essential python3.11-dev \
     && apt-get remove -y --allow-remove-essential e2fsprogs \
     && apt-get autoremove -y \
     && apt-get clean && apt-get purge \
