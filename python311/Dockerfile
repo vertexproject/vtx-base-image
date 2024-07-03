@@ -44,9 +44,9 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y curl build-essential python3.11-dev \
-    && apt-get remove -y --allow-remove-essential e2fsprogs \
-    && apt-get autoremove -y \
+    && apt-get remove -y --purge curl build-essential python3.11-dev \
+    && apt-get remove -y --allow-remove-essential --purge e2fsprogs \
+    && apt-get autoremove -y --purge \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
