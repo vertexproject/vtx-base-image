@@ -45,7 +45,7 @@ cpe==1.2.1
 execnet==2.0.2
 ###################################
 # pytest
-exceptiongroup==1.2.0
+exceptiongroup==1.2.2
 ###################################
 # jsonschema -> fqdn
 fqdn==1.5.1
