@@ -4,7 +4,7 @@ aiohttp==3.9.5
 aiohttp-socks==0.8.4
 aiosmtplib==3.0.1
 pyOpenSSL==24.1.0
-cryptography==42.0.8
+cryptography==43.0.0
 msgpack==1.0.8
 xxhash==3.4.1
 lmdb==1.4.1
