@@ -105,7 +105,7 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 ###################################
 # referencing -> rpds-py
-rpds-py==0.18.0
+rpds-py==0.19.1
 ###################################
 # stix2-validator -> simplejson
 simplejson==3.19.2
