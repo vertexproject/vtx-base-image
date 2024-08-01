@@ -7,6 +7,9 @@
 # added here. This makes it easier to check for upstream dependencies when
 # reviewing updates.
 ###################################
+# aiohttp -> aiohappyeyeballs
+aiohappyeyeballs==2.3.2
+###################################
 # aiohttp -> aiosignal
 aiosignal==1.3.1
 ###################################
