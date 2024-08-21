@@ -92,7 +92,7 @@ pycparser==2.21
 pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.5.0
+python-socks==2.5.1
 ###################################
 # jsonschema -> referencing
 referencing==0.34.0
