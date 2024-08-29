@@ -95,7 +95,7 @@ pytest-forked==1.6.0
 python-socks==2.5.1
 ###################################
 # jsonschema -> referencing
-referencing==0.34.0
+referencing==0.35.1
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
