@@ -8,7 +8,7 @@
 # reviewing updates.
 ###################################
 # aiohttp -> aiohappyeyeballs
-aiohappyeyeballs==2.3.4
+aiohappyeyeballs==2.4.0
 ###################################
 # aiohttp -> aiosignal
 aiosignal==1.3.1
@@ -42,7 +42,7 @@ charset-normalizer==3.3.2
 colorama==0.4.6
 ###################################
 # stix2-validator -> cpe
-cpe==1.2.1
+cpe==1.3.0
 ###################################
 # pytest
 execnet==2.0.2
@@ -92,7 +92,7 @@ pycparser==2.21
 pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.5.0
+python-socks==2.5.1
 ###################################
 # jsonschema -> referencing
 referencing==0.34.0
@@ -111,7 +111,7 @@ rfc3986-validator==0.1.1
 rpds-py==0.18.0
 ###################################
 # stix2-validator -> simplejson
-simplejson==3.19.2
+simplejson==3.19.3
 ###################################
 # vcrpy -> six
 # pyopenssl -> six
