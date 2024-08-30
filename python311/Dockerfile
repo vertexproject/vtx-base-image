@@ -19,8 +19,8 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano python3.11 python3.11-distutils \
-    && apt-get install -y build-essential python3.11-dev \
+    && apt-get install -y locales curl tini nano "python3.11=3.11.2-6+deb12u2" "python3.11-minimal=3.11.2-6+deb12u2" "libpython3.11-stdlib=3.11.2-6+deb12u2" "libpython3.11-minimal=3.11.2-6+deb12u2" python3.11-distutils \
+    && apt-get install -y build-essential "python3.11-dev=3.11.2-6+deb12u2" "libpython3.11-dev=3.11.2-6+deb12u2" "libpython3.11=3.11.2-6+deb12u2" \
     # Setup python /pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
