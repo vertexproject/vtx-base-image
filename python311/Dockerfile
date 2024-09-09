@@ -31,6 +31,7 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
+    && pip install -U pip setuptools \
     && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
