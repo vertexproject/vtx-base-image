@@ -1,9 +1,9 @@
 FROM debian:bookworm-slim
 
-MAINTAINER vEpiphyte <epiphyte@vertex.link>
+LABEL org.opencontainers.image.authors="epiphyte@vertex.link"
 
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED="1"
 
 COPY get-pip-23.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
