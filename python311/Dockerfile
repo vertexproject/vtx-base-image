@@ -1,11 +1,10 @@
-FROM debian:bookworm-slim
+FROM python:3.11-slim-bookworm
 
 MAINTAINER vEpiphyte <epiphyte@vertex.link>
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
-COPY get-pip-23.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python311/rmlist.txt rmlist.txt
@@ -19,12 +18,8 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano "python3.11=3.11.2-6+deb12u2" "python3.11-minimal=3.11.2-6+deb12u2" "libpython3.11-stdlib=3.11.2-6+deb12u2" "libpython3.11-minimal=3.11.2-6+deb12u2" python3.11-distutils \
-    && apt-get install -y build-essential "python3.11-dev=3.11.2-6+deb12u2" "libpython3.11-dev=3.11.2-6+deb12u2" "libpython3.11=3.11.2-6+deb12u2" \
-    # Setup python /pip
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
-    && python get-pip.py --no-cache-dir --break-system-packages \
+    && apt-get install -y locales tini nano \
+    && apt-get install -y curl build-essential \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -36,7 +31,7 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
-    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt --break-system-packages \
+    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
@@ -44,14 +39,13 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y --purge curl build-essential python3.11-dev libpython3.11-dev libpython3.11 \
+    && apt-get remove -y --purge curl build-essential \
     && apt-get remove -y --allow-remove-essential --purge e2fsprogs \
     && apt-get autoremove -y --purge \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
-    && rm get-pip.py \
     && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
     && rm rmlist.txt
 
