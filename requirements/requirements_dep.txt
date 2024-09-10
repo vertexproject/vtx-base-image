@@ -80,7 +80,7 @@ more-itertools==10.5.0
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
-multidict==6.0.5
+multidict==6.1.0
 ###################################
 # pytest -> pluggy
 pluggy==1.3.0
