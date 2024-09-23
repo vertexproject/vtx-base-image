@@ -1,1 +1,1 @@
-/usr/local/lib/python3.11/site-packages/tornado/test/test.key
+/usr/local/lib/python3.11/dist-packages/tornado/test/test.key
