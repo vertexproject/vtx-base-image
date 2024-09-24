@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
-COPY python311/rmlist.txt rmlist.txt
+COPY python311_next/rmlist.txt rmlist.txt
 # apt get clean / update / upgrade / install required packages / clean up
 # setup locales
 # install python packages
