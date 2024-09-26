@@ -8,7 +8,7 @@
 # reviewing updates.
 ###################################
 # aiohttp -> aiohappyeyeballs
-aiohappyeyeballs==2.4.0
+aiohappyeyeballs==2.4.1
 ###################################
 # aiohttp -> aiosignal
 aiosignal==1.3.1
