@@ -130,7 +130,7 @@ stix2-patterns==2.0.0
 toml==0.10.2
 ###################################
 # pytest -> tomli
-tomli==2.0.1
+tomli==2.0.2
 ###################################
 # arrow -> types-python-dateutil
 types-python-dateutil==2.8.19.14
