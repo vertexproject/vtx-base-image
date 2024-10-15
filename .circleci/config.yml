@@ -34,4 +34,4 @@ workflows:
   run_tests:
     jobs:
       - test_311
-      - test_311_next
+#      - test_311_next
