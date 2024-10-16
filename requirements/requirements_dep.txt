@@ -85,6 +85,9 @@ multidict==6.1.0
 # pytest -> pluggy
 pluggy==1.3.0
 ###################################
+# yarl -> propcache
+propcache==0.2.0
+###################################
 # cffi -> pycparser
 pycparser==2.22
 ###################################
@@ -159,4 +162,4 @@ wrapt==1.15.0
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.12.1
+yarl==1.15.3
