@@ -8,7 +8,7 @@
 # reviewing updates.
 ###################################
 # aiohttp -> aiohappyeyeballs
-aiohappyeyeballs==2.3.4
+aiohappyeyeballs==2.4.3
 ###################################
 # aiohttp -> aiosignal
 aiosignal==1.3.1
@@ -29,20 +29,20 @@ async-timeout==4.0.3
 attrs==23.1.0
 ###################################
 # requests -> certifi
-certifi==2024.7.4
+certifi==2024.8.30
 ###################################
 # cryptography -> cffi
-cffi==1.16.0
+cffi==1.17.1
 ###################################
 # aiohttp -> charset-normalizer
 # requests -> charset-normalizer
-charset-normalizer==3.3.2
+charset-normalizer==3.4.0
 ###################################
 # stix2-validator -> colorama
 colorama==0.4.6
 ###################################
 # stix2-validator -> cpe
-cpe==1.2.1
+cpe==1.3.1
 ###################################
 # pytest
 execnet==2.0.2
@@ -55,7 +55,7 @@ fqdn==1.5.1
 ###################################
 # aiohttp -> frozenlist
 # aiosignal -> frozenlist
-frozenlist==1.4.1
+frozenlist==1.5.0
 ###################################
 # beautifulsoup4 -> html5lib
 html5lib==1.1
@@ -67,35 +67,38 @@ iniconfig==2.0.0
 isoduration==20.11.0
 ###################################
 # jsonschema -> jsonpointer
-jsonpointer==2.4
+jsonpointer==3.0.0
 ###################################
 # stix2-validator -> jsonschema
-jsonschema==4.21.0
+jsonschema==4.23.0
 ###################################
 # jsonschema -> jsonschema-specifications
-jsonschema-specifications==2023.12.1
+jsonschema-specifications==2024.10.1
 ###################################
 # scalecodec -> more-itertools
-more-itertools==10.1.0
+more-itertools==10.5.0
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
-multidict==6.0.4
+multidict==6.1.0
 ###################################
 # pytest -> pluggy
 pluggy==1.3.0
 ###################################
+# yarl -> propcache
+propcache==0.2.0
+###################################
 # cffi -> pycparser
-pycparser==2.21
+pycparser==2.22
 ###################################
 # pytest
 pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.5.0
+python-socks==2.5.3
 ###################################
 # jsonschema -> referencing
-referencing==0.34.0
+referencing==0.35.1
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
@@ -108,10 +111,10 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 ###################################
 # referencing -> rpds-py
-rpds-py==0.18.0
+rpds-py==0.20.0
 ###################################
 # stix2-validator -> simplejson
-simplejson==3.19.2
+simplejson==3.19.3
 ###################################
 # vcrpy -> six
 # pyopenssl -> six
@@ -121,7 +124,7 @@ simplejson==3.19.2
 six==1.16.0
 ###################################
 # beautifulsoup4 -> soupsieve
-soupsieve==2.5
+soupsieve==2.6
 ###################################
 # stix2-validator -> stix2-patterns
 stix2-patterns==2.0.0
@@ -130,10 +133,10 @@ stix2-patterns==2.0.0
 toml==0.10.2
 ###################################
 # pytest -> tomli
-tomli==2.0.1
+tomli==2.0.2
 ###################################
 # arrow -> types-python-dateutil
-types-python-dateutil==2.8.19.14
+types-python-dateutil==2.9.0.20241003
 ###################################
 # uri-template
 # stix2-validator -> jsonschema
@@ -143,13 +146,13 @@ uri-template==1.3.0
 url-normalize==1.4.3
 ###################################
 # requests -> urllib3
-urllib3==2.2.2
+urllib3==2.2.3
 ###################################
 # prompt-toolkit -> wcwidth
 wcwidth==0.2.12
 ###################################
 # jsonschema -> webcolors
-webcolors==24.6.0
+webcolors==24.11.1
 ###################################
 # html5lib -> webencodings
 webencodings==0.5.1
@@ -159,4 +162,4 @@ wrapt==1.15.0
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.9.4
+yarl==1.15.3
