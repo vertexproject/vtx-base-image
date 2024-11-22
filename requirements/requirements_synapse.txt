@@ -1,5 +1,5 @@
 # Required packages for synapse
-tornado==6.4.1
+tornado==6.4.2
 aiohttp==3.11.7
 aiohttp-socks==0.9.0
 aiosmtplib==3.0.2
