@@ -121,7 +121,7 @@ simplejson==3.19.3
 # python-dateutil -> six
 # stix2-patterns -> six
 # html5lib -> six
-six==1.16.0
+six==1.17.0
 ###################################
 # beautifulsoup4 -> soupsieve
 soupsieve==2.6
