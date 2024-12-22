@@ -140,7 +140,7 @@ uri-template==1.3.0
 url-normalize==1.4.3
 ###################################
 # requests -> urllib3
-urllib3==2.2.3
+urllib3==2.3.0
 ###################################
 # prompt-toolkit -> wcwidth
 wcwidth==0.2.12
