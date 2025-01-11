@@ -23,7 +23,7 @@ typing-extensions==4.9.0
 scalecodec==1.2.9
 cbor2==5.6.5
 bech32==1.2.0
-aioimaplib==1.1.0
+aioimaplib==2.0.0
 oauthlib==3.2.2
 pycryptodome==3.21.0
 idna==3.7
