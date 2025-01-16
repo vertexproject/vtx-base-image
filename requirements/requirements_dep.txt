@@ -19,9 +19,6 @@ antlr4-python3-runtime==4.9.3
 # isoduration -> arrow
 arrow==1.3.0
 ###################################
-# python-socks -> async-timeout
-async-timeout==4.0.3
-###################################
 # aiohttp -> attrs
 # aiohttp-socks -> attrs
 # referencing -> attrs
@@ -95,7 +92,7 @@ pycparser==2.22
 pytest-forked==1.6.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.5.3
+python-socks==2.6.1
 ###################################
 # jsonschema -> referencing
 referencing==0.35.1
@@ -156,4 +153,4 @@ wrapt==1.15.0
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.15.3
+yarl==1.18.3
