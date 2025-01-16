@@ -29,7 +29,7 @@ async-timeout==4.0.3
 attrs==23.1.0
 ###################################
 # requests -> certifi
-certifi==2024.8.30
+certifi==2024.12.14
 ###################################
 # cryptography -> cffi
 cffi==1.17.1
