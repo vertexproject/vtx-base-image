@@ -7,7 +7,7 @@ pyOpenSSL==24.2.1
 cryptography==43.0.3
 msgpack==1.1.0
 xxhash==3.5.0
-lmdb==1.4.1
+lmdb==1.6.2
 regex==2024.11.6
 PyYAML==6.0.2
 prompt-toolkit==3.0.48
