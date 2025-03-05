@@ -30,3 +30,4 @@ idna==3.7
 python-dateutil==2.9.0.post0
 pytz==2023.3.post1
 beautifulsoup4==4.12.3
+orjson>=3.10.15,<4.0
