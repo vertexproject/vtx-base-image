@@ -58,7 +58,7 @@ frozenlist==1.5.0
 html5lib==1.1
 ###################################
 # pytest -> iniconfig
-iniconfig==2.0.0
+iniconfig==2.1.0
 ###################################
 # jsonschema -> isoduration
 isoduration==20.11.0
