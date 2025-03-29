@@ -1,37 +1,126 @@
-version: 2
+version: 2.1
 
-docker_test_steps:  &docker_test_steps
-  steps:
-    - checkout
-    - run:
-        name: setup test images and run tests
-        command: |
-          docker build -t syntestimage:"$DIRNAME"-regular -f ./"$DIRNAME"/Dockerfile .
-          docker run --rm syntestimage:"$DIRNAME"-regular python -m pip freeze
-          printf "FROM syntestimage:"$DIRNAME"-regular\n\n" > test/Dockerfile_"$DIRNAME"
-          cat test/Dockerfile >> test/Dockerfile_"$DIRNAME"
-          docker build -t syntestimage:"$DIRNAME"-test -f test/Dockerfile_"$DIRNAME" ./test
-          docker run --rm --network host -e "SYN_LOG_LEVEL=DEBUG" syntestimage:"$DIRNAME"-test 2>&1
-
-jobs:
-
-  test_311:
+executors:
+  amd64:
     machine:
       image: ubuntu-2204:current
-    environment:
-      DIRNAME: python311
+
+docker_build_steps: &docker_build_steps
+  environment:
+    DIRNAME: << parameters.DIRNAME >>
+    IMAGE_ARCH: << parameters.IMAGE_ARCH >>
+  steps:
+    # Note: no restore_cache, so the image is always rebuilt
+    - checkout
+    - run:
+        name: build base image
+        command: |
+          export DOCKER_BUILDKIT=1
+          export BUILDKIT_PROGRESS=plain
+          docker context create "${IMAGE_ARCH}-build"
+          docker buildx create "${IMAGE_ARCH}-build" "--platform=linux/${IMAGE_ARCH}" --use
+          docker buildx inspect --bootstrap
+
+          # produce single-arch image for future publishing
+          docker buildx build \
+              --platform "linux/${IMAGE_ARCH}" \
+              --tag "syntestimage:${DIRNAME}-regular" \
+              --output "type=docker,dest=syntestimage.${IMAGE_ARCH}.tar" \
+              --file "./${DIRNAME}/Dockerfile" \
+              .
+
+    - save_cache:
+        key: syntestimage-<< parameters.DIRNAME >>-regular
+        paths:
+          - syntestimage.<< parameters.IMAGE_ARCH >>.tar
+
+
+docker_test_steps:  &docker_test_steps
+  environment:
+    DIRNAME: << parameters.DIRNAME >>
+    IMAGE_ARCH: << parameters.IMAGE_ARCH >>
+  steps:
+    - checkout
+    # note, cache in restore_cache comes from the latest build step only
+    - restore_cache:
+        key: syntestimage-<< parameters.DIRNAME >>-regular
+    - run:
+        name: set up test images and run tests
+        command: |
+          export DOCKER_BUILDKIT=1
+          export BUILDKIT_PROGRESS=plain
+
+          docker image load -i "syntestimage.${IMAGE_ARCH}.tar"
+
+          docker container run --rm "syntestimage:${DIRNAME}-regular" \
+              python -m pip freeze
+
+          printf "FROM syntestimage:${DIRNAME}-regular\n\n" > "test/Dockerfile_${DIRNAME}"
+          cat test/Dockerfile >> "test/Dockerfile_${DIRNAME}"
+          docker buildx build \
+              --platform "${IMAGE_ARCH}" \
+              --tag "syntestimage:${DIRNAME}-test" \
+              --file "test/Dockerfile_${DIRNAME}" \
+              ./test
+
+          docker container run --rm --network host \
+              --env 'SYN_LOG_LEVEL=DEBUG' \
+              "syntestimage:${DIRNAME}-test" 2>&1
+
+jobs:
+  build_311:
+    executor: amd64
+    parameters:
+      DIRNAME:
+        type: string
+        default: python311
+      IMAGE_ARCH:
+        type: string
+        default: amd64
+    <<: *docker_build_steps
+
+#  build_311_next:
+#    executor: amd64
+#    parameters:
+#      DIRNAME:
+#        type: string
+#        default: python311_next
+#      IMAGE_ARCH:
+#        type: string
+#        default: amd64
+#    <<: *docker_build_steps
+
+  test_311:
+    executor: amd64
+    parameters:
+      DIRNAME:
+        type: string
+        default: python311
+      IMAGE_ARCH:
+        type: string
+        default: amd64
     <<: *docker_test_steps
 
 #  test_311_next:
-#    machine:
-#      image: ubuntu-2204:current
-#    environment:
-#      DIRNAME: python311_next
+#    executor: amd64
+#    parameters:
+#      DIRNAME:
+#        type: string
+#        default: python311_next
+#      IMAGE_ARCH:
+#        type: string
+#        default: amd64
 #    <<: *docker_test_steps
 
 workflows:
-  version: 2
-  run_tests:
+  build-and-test:
     jobs:
-      - test_311
-#      - test_311_next
+      - build_311
+#      - build_311_next
+      - test_311:
+          requires:
+            - build_311
+#      - test_311_next:
+#          requires:
+#            - build_311_next
+
