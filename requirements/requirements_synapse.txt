@@ -1,6 +1,6 @@
 # Required packages for synapse
 tornado==6.4.2
-aiohttp==3.11.12
+aiohttp==3.11.15
 aiohttp-socks==0.10.1
 aiosmtplib==3.0.2
 pyOpenSSL==24.2.1
