@@ -9,9 +9,9 @@ if [ "$DIRNAME" = "python313" ]; then
   git checkout pr-4233
 else
   git clone https://github.com/vertexproject/synapse.git -v --depth 1 ./synapse
+  cd ./synapse
 fi
 
-cd ./synapse
 cp -v /opt/test/pytest.ini .
 which python3
 which python
