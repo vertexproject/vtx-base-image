@@ -1,25 +1,25 @@
 # Required packages for synapse
 tornado==6.4.2
-aiohttp==3.10.11
-aiohttp-socks==0.9.1
+aiohttp==3.11.16
+aiohttp-socks==0.10.1
 aiosmtplib==3.0.2
 pyOpenSSL==24.2.1
 cryptography==43.0.3
 msgpack==1.1.0
 xxhash==3.5.0
-lmdb==1.4.1
+lmdb==1.6.2
 regex==2024.11.6
 PyYAML==6.0.2
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.50
 Pygments==2.17.2
-lark==1.2.1
+lark==1.2.2
 packaging==24.2
 fastjsonschema==2.19.1
 stix2-validator==3.2.0
 vcrpy==5.1.0
 base58==2.1.1
 python-bitcoinlib==0.12.2
-typing-extensions==4.9.0
+typing-extensions==4.13.2
 scalecodec==1.2.9
 cbor2==5.6.5
 bech32==1.2.0
@@ -30,3 +30,4 @@ idna==3.7
 python-dateutil==2.9.0.post0
 pytz==2023.3.post1
 beautifulsoup4==4.12.3
+orjson==3.10.16
