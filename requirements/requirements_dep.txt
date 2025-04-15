@@ -140,7 +140,7 @@ url-normalize==1.4.3
 urllib3==2.4.0
 ###################################
 # prompt-toolkit -> wcwidth
-wcwidth==0.2.12
+wcwidth==0.2.13
 ###################################
 # jsonschema -> webcolors
 webcolors==24.11.1
