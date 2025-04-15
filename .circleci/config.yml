@@ -11,7 +11,7 @@ docker_test_steps:  &docker_test_steps
           printf "FROM syntestimage:"$DIRNAME"-regular\n\n" > test/Dockerfile_"$DIRNAME"
           cat test/Dockerfile >> test/Dockerfile_"$DIRNAME"
           docker build -t syntestimage:"$DIRNAME"-test -f test/Dockerfile_"$DIRNAME" ./test
-          docker run --rm -e "DIRNAME=$DIRNAME" --network host -e "SYN_LOG_LEVEL=DEBUG" syntestimage:"$DIRNAME"-test 2>&1
+          docker run --rm -e "SYN_MASTER_REF=$SYN_MASTER_REF" --network host -e "SYN_LOG_LEVEL=DEBUG" syntestimage:"$DIRNAME"-test 2>&1
 
 jobs:
 
@@ -34,6 +34,7 @@ jobs:
       image: ubuntu-2204:current
     environment:
       DIRNAME: python313
+      SYN_MASTER_REF: bender/syn3xx/py313-updates
     <<: *docker_test_steps
 
 workflows:
