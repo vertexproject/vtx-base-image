@@ -15,17 +15,8 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano gnupg2 python3-setuptools \
-    # Add trixie repository for Python 3.13 Dev
-    && echo "deb http://deb.debian.org/debian/ trixie main contrib non-free" > /etc/apt/sources.list.d/trixie.list \
-    && echo "Package: python3.13-dev" > /etc/apt/preferences.d/trixie.pref \
-    && echo "Pin: release n=trixie" >> /etc/apt/preferences.d/trixie.pref \
-    && echo "Pin-Priority: 50" >> /etc/apt/preferences.d/trixie.pref \
-    && apt-get update \
-    && apt-get install -y build-essential python3.13-dev \
-    # Alias python and install pip
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.13 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1 \
+    && apt-get install -y locales curl tini nano gnupg2 python3-setuptools build-essential \
+    # Install pip
     && python get-pip.py --no-cache-dir --break-system-packages \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
@@ -46,13 +37,11 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y --purge curl build-essential python3.13-dev gnupg2 \
+    && apt-get remove -y --purge curl build-essential gnupg2 \
     && apt-get remove -y --allow-remove-essential --purge e2fsprogs \
     && apt-get autoremove -y --purge \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /etc/apt/sources.list.d/trixie.list \
-    && rm -rf /etc/apt/preferences.d/trixie.pref \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
     && rm get-pip.py \
