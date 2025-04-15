@@ -5,7 +5,7 @@ MAINTAINER vEpiphyte <epiphyte@vertex.link>
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED 1
 
-COPY get-pip-23.0.1.py get-pip.py
+COPY get-pip-25.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python311/rmlist.txt rmlist.txt
