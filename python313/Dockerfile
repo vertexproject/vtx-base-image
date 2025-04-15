@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM python:3.13-slim-bookworm
 
 LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 
@@ -15,19 +15,17 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano gnupg2 \
-    # Add trixie repository for Python 3.13
+    && apt-get install -y locales curl tini nano gnupg2 python3-setuptools \
+    # Add trixie repository for Python 3.13 Dev
     && echo "deb http://deb.debian.org/debian/ trixie main contrib non-free" > /etc/apt/sources.list.d/trixie.list \
-    && echo "Package: *" > /etc/apt/preferences.d/trixie.pref \
+    && echo "Package: python3.13-dev" > /etc/apt/preferences.d/trixie.pref \
     && echo "Pin: release n=trixie" >> /etc/apt/preferences.d/trixie.pref \
     && echo "Pin-Priority: 50" >> /etc/apt/preferences.d/trixie.pref \
     && apt-get update \
-    && apt-get install -y build-essential \
-    && apt-get install -t trixie -y python3.13 python3.13-dev python3-setuptools \
-    # Remove python3-typing-extensions (newer version will be handled by pip install)
-    && apt-get remove -y python3-typing-extensions \
+    && apt-get install -y build-essential python3.13-dev \
     # Alias python and install pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.13 1 \
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1 \
     && python get-pip.py --no-cache-dir --break-system-packages \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
@@ -57,8 +55,8 @@ RUN set -ex \
     && rm -rf /etc/apt/preferences.d/trixie.pref \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
+    && rm get-pip.py \
     && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
-    # Alias python3 to python3.13
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1
+    && rm rmlist.txt
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
