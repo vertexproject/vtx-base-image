@@ -5,6 +5,7 @@ LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED=1
 
+COPY get-pip-25.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python313/rmlist.txt rmlist.txt
@@ -22,12 +23,14 @@ RUN set -ex \
     && echo "Pin-Priority: 50" >> /etc/apt/preferences.d/trixie.pref \
     && apt-get update \
     && apt-get install -y build-essential \
-    && apt-get install -t trixie -y python3.13 python3.13-dev python3-setuptools python3-pip \
+    && apt-get install -t trixie -y python3.13 python3.13-dev python3-setuptools \
+    # Remove python3-typing-extensions (newer version will be handled by pip install)
+    && apt-get remove -y python3-typing-extensions \
     # Alias python / python3 to python3.13
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.13 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1 \
-    # Upgrade pip using pip
-    && python3.13 -m pip install --upgrade pip --break-system-packages \
+    # Install pip using get-pip.py
+    && python get-pip.py --no-cache-dir --break-system-packages \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
