@@ -26,10 +26,8 @@ RUN set -ex \
     && apt-get install -t trixie -y python3.13 python3.13-dev python3-setuptools \
     # Remove python3-typing-extensions (newer version will be handled by pip install)
     && apt-get remove -y python3-typing-extensions \
-    # Alias python / python3 to python3.13
+    # Alias python and install pip
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.13 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1 \
-    # Install pip using get-pip.py
     && python get-pip.py --no-cache-dir --break-system-packages \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
@@ -60,6 +58,7 @@ RUN set -ex \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
     && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
-    && rm rmlist.txt
+    # Alias python3 to python3.13
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
