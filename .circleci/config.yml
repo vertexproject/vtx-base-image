@@ -19,6 +19,7 @@ commands:
       - run:
           name: build base image
           command: |
+            set -ex
             export DOCKER_BUILDKIT=1
             export BUILDKIT_PROGRESS=plain
             docker context create "<< parameters.IMAGE_ARCH >>-build"
@@ -56,6 +57,7 @@ commands:
       - run:
           name: set up test images and run tests
           command: |
+            set -ex
             export DOCKER_BUILDKIT=1
             export BUILDKIT_PROGRESS=plain
 
