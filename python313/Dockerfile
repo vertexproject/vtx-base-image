@@ -1,30 +1,23 @@
-FROM debian:bookworm-slim
+FROM python:3.13.3-slim-bookworm
 
-MAINTAINER vEpiphyte <epiphyte@vertex.link>
+LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 COPY get-pip-25.0.1.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
-COPY python311/rmlist.txt rmlist.txt
-# apt get clean / update / upgrade / install required packages / clean up
-# setup locales
-# install python packages
-#  Since we are using --no-deps if a package has a missing dependency here,
-#  it will fail during testing.
-# cleanup
+COPY python313/rmlist.txt rmlist.txt
+
+# Install dependencies, Python 3.13, and setup environment
 RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano python3.11 python3.11-distutils \
-    && apt-get install -y build-essential python3.11-dev \
-    # Setup python /pip
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
-    && python get-pip.py --no-cache-dir --break-system-packages \
+    && apt-get install -y locales curl tini nano build-essential \
+    # Install pip
+    && python get-pip.py --no-cache-dir \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -35,8 +28,9 @@ RUN set -ex \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
-    && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
-    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt --break-system-packages \
+    && mv requirements/requirements_313.txt requirements/requirements_specific.txt \
+    && pip install -U pip setuptools \
+    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
@@ -44,7 +38,7 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y --purge curl build-essential python3.11-dev \
+    && apt-get remove -y --purge curl build-essential \
     && apt-get remove -y --allow-remove-essential --purge e2fsprogs \
     && apt-get autoremove -y --purge \
     && apt-get clean && apt-get purge \

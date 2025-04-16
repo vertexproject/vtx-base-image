@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 apt update
 apt install -y git
-git clone https://github.com/vertexproject/synapse.git -v --depth 1 ./synapse
+
+echo "Git clone synapse using branch: ${SYN_MASTER_REF:-master}"
+git clone --single-branch --branch ${SYN_MASTER_REF:-master} -v --depth 1 https://github.com/vertexproject/synapse.git ./synapse
 cd ./synapse
+
 cp -v /opt/test/pytest.ini .
 which python3
 which python
