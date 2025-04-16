@@ -28,7 +28,7 @@ RUN set -ex \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
-    && mv requirements/requirements_311.txt requirements/requirements_specific.txt \
+    && mv requirements/requirements_313.txt requirements/requirements_specific.txt \
     && pip install --no-cache-dir --no-deps -r requirements/requirements.txt --break-system-packages \
     # Setup synuser
     && groupadd -g 999 synuser \
