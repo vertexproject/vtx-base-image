@@ -15,9 +15,9 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y locales curl tini nano gnupg2 python3-setuptools build-essential \
+    && apt-get install -y locales curl tini nano build-essential \
     # Install pip
-    && python get-pip.py --no-cache-dir --break-system-packages \
+    && python get-pip.py --no-cache-dir \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -29,7 +29,8 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_313.txt requirements/requirements_specific.txt \
-    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt --break-system-packages \
+    && pip install -U pip setuptools \
+    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
