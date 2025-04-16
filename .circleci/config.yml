@@ -79,17 +79,6 @@ jobs:
         default: amd64
     <<: *docker_build_steps
 
-#  build_311_next:
-#    executor: amd64
-#    parameters:
-#      DIRNAME:
-#        type: string
-#        default: python311_next
-#      IMAGE_ARCH:
-#        type: string
-#        default: amd64
-#    <<: *docker_build_steps
-
   test_311:
     executor: amd64
     parameters:
@@ -101,26 +90,10 @@ jobs:
         default: amd64
     <<: *docker_test_steps
 
-#  test_311_next:
-#    executor: amd64
-#    parameters:
-#      DIRNAME:
-#        type: string
-#        default: python311_next
-#      IMAGE_ARCH:
-#        type: string
-#        default: amd64
-#    <<: *docker_test_steps
-
 workflows:
   build-and-test:
     jobs:
       - build_311
-#      - build_311_next
       - test_311:
           requires:
             - build_311
-#      - test_311_next:
-#          requires:
-#            - build_311_next
-
