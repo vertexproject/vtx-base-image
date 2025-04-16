@@ -22,13 +22,6 @@ jobs:
       DIRNAME: python311
     <<: *docker_test_steps
 
-#  test_311_next:
-#    machine:
-#      image: ubuntu-2204:current
-#    environment:
-#      DIRNAME: python311_next
-#    <<: *docker_test_steps
-
   test_313:
     machine:
       image: ubuntu-2204:current
@@ -43,4 +36,3 @@ workflows:
     jobs:
       - test_311
       - test_313
-#      - test_311_next
