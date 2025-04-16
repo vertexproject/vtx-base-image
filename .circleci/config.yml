@@ -5,112 +5,103 @@ executors:
     machine:
       image: ubuntu-2204:current
 
-docker_build_steps: &docker_build_steps
-  environment:
-    DIRNAME: << parameters.DIRNAME >>
-    IMAGE_ARCH: << parameters.IMAGE_ARCH >>
-  steps:
-    # Note: no restore_cache, so the image is always rebuilt
-    - checkout
-    - run:
-        name: build base image
-        command: |
-          export DOCKER_BUILDKIT=1
-          export BUILDKIT_PROGRESS=plain
-          docker context create "${IMAGE_ARCH}-build"
-          docker buildx create "${IMAGE_ARCH}-build" "--platform=linux/${IMAGE_ARCH}" --use
-          docker buildx inspect --bootstrap
+commands:
+  docker_build:
+    parameters:
+      DIRNAME:
+        type: string
+      IMAGE_ARCH:
+        type: string
+        default: amd64
+    steps:
+      # Note: no restore_cache, so the image is always rebuilt
+      - checkout
+      - run:
+          name: build base image
+          command: |
+            export DOCKER_BUILDKIT=1
+            export BUILDKIT_PROGRESS=plain
+            docker context create "<< parameters.IMAGE_ARCH >>-build"
+            docker buildx create "<< parameters.IMAGE_ARCH >>-build" "--platform=linux/<< parameters.IMAGE_ARCH >>" --use
+            docker buildx inspect --bootstrap
+  
+            # produce single-arch image for future publishing
+            docker buildx build \
+                --platform "linux/<< parameters.IMAGE_ARCH >>" \
+                --tag "syntestimage:<< parameters.DIRNAME >>-regular" \
+                --output "type=docker,dest=syntestimage.<< parameters.IMAGE_ARCH >>.tar" \
+                --file "./${DIRNAME}/Dockerfile" \
+                .
 
-          # produce single-arch image for future publishing
-          docker buildx build \
-              --platform "linux/${IMAGE_ARCH}" \
-              --tag "syntestimage:${DIRNAME}-regular" \
-              --output "type=docker,dest=syntestimage.${IMAGE_ARCH}.tar" \
-              --file "./${DIRNAME}/Dockerfile" \
-              .
+      - save_cache:
+          key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
+          paths:
+            - syntestimage.<< parameters.IMAGE_ARCH >>.tar
 
-    - save_cache:
-        key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
-        paths:
-          - syntestimage.<< parameters.IMAGE_ARCH >>.tar
+  docker_test:
+    parameters:
+      DIRNAME:
+        type: string
+      IMAGE_ARCH:
+        type: string
+        default: amd64
+      SYN_MASTER_REF:
+        type: string
+        default: master
+    steps:
+      - checkout
+      # note, cache in restore_cache comes from the latest build step only
+      - restore_cache:
+          key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
+      - run:
+          name: set up test images and run tests
+          command: |
+            export DOCKER_BUILDKIT=1
+            export BUILDKIT_PROGRESS=plain
 
+            docker image load -i "syntestimage.<< parameters.IMAGE_ARCH >>.tar"
 
-docker_test_steps:  &docker_test_steps
-  environment:
-    DIRNAME: << parameters.DIRNAME >>
-    IMAGE_ARCH: << parameters.IMAGE_ARCH >>
-  steps:
-    - checkout
-    # note, cache in restore_cache comes from the latest build step only
-    - restore_cache:
-        key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
-    - run:
-        name: set up test images and run tests
-        command: |
-          export DOCKER_BUILDKIT=1
-          export BUILDKIT_PROGRESS=plain
+            docker container run --rm "syntestimage:<< parameters.DIRNAME >>-regular" \
+                python -m pip freeze
 
-          docker image load -i "syntestimage.${IMAGE_ARCH}.tar"
+            printf "FROM syntestimage:<< parameters.DIRNAME >>-regular\n\n" > "test/Dockerfile_<< parameters.DIRNAME >>"
+            cat test/Dockerfile >> "test/Dockerfile_<< parameters.DIRNAME >>"
+            docker buildx build \
+                --platform << parameters.IMAGE_ARCH >> \
+                --tag "syntestimage:<< parameters.DIRNAME >>-test" \
+                --file "test/Dockerfile_<< parameters.DIRNAME >>" \
+                ./test
 
-          docker container run --rm "syntestimage:${DIRNAME}-regular" \
-              python -m pip freeze
-
-          printf "FROM syntestimage:${DIRNAME}-regular\n\n" > "test/Dockerfile_${DIRNAME}"
-          cat test/Dockerfile >> "test/Dockerfile_${DIRNAME}"
-          docker buildx build \
-              --platform "${IMAGE_ARCH}" \
-              --tag "syntestimage:${DIRNAME}-test" \
-              --file "test/Dockerfile_${DIRNAME}" \
-              ./test
-
-          docker container run --rm --network host \
-              --env 'SYN_LOG_LEVEL=DEBUG' \
-              "syntestimage:${DIRNAME}-test" 2>&1
+            docker container run --rm --network host \
+                --env 'SYN_LOG_LEVEL=DEBUG' \
+                --env 'SYN_MASTER_REF=<< parameters.SYN_MASTER_REF >>' \
+                "syntestimage:<< parameters.DIRNAME >>-test" 2>&1
 
 jobs:
   build_311:
     executor: amd64
-    parameters:
-      DIRNAME:
-        type: string
-        default: python311
-      IMAGE_ARCH:
-        type: string
-        default: amd64
-    <<: *docker_build_steps
+    steps:
+      - docker_build:
+          DIRNAME: python311
 
   test_311:
     executor: amd64
-    parameters:
-      DIRNAME:
-        type: string
-        default: python311
-      IMAGE_ARCH:
-        type: string
-        default: amd64
-    <<: *docker_test_steps
+    steps:
+      - docker_test:
+          DIRNAME: python311
 
   build_313:
     executor: amd64
-    parameters:
-      DIRNAME:
-        type: string
-        default: python313
-      IMAGE_ARCH:
-        type: string
-        default: amd64
-    <<: *docker_build_steps
+    steps:
+      - docker_build:
+          DIRNAME: python313
 
   test_313:
     executor: amd64
-    parameters:
-      DIRNAME:
-        type: string
-        default: python313
-      IMAGE_ARCH:
-        type: string
-        default: amd64
-    <<: *docker_test_steps
+    steps:
+      - docker_test:
+          DIRNAME: python313
+          SYN_MASTER_REF: bender/syn3xx/py313-updates
 
 workflows:
   build-and-test:
