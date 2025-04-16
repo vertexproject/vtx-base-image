@@ -31,7 +31,7 @@ commands:
                 --platform "linux/<< parameters.IMAGE_ARCH >>" \
                 --tag "syntestimage:<< parameters.DIRNAME >>-regular" \
                 --output "type=docker,dest=syntestimage.<< parameters.IMAGE_ARCH >>.tar" \
-                --file "./${DIRNAME}/Dockerfile" \
+                --file "./<< parameters.DIRNAME >>/Dockerfile" \
                 .
 
       - save_cache:
