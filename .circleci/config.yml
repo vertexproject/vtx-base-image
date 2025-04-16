@@ -30,7 +30,7 @@ docker_build_steps: &docker_build_steps
               .
 
     - save_cache:
-        key: syntestimage-<< parameters.DIRNAME >>-regular
+        key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
         paths:
           - syntestimage.<< parameters.IMAGE_ARCH >>.tar
 
@@ -43,7 +43,7 @@ docker_test_steps:  &docker_test_steps
     - checkout
     # note, cache in restore_cache comes from the latest build step only
     - restore_cache:
-        key: syntestimage-<< parameters.DIRNAME >>-regular
+        key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
     - run:
         name: set up test images and run tests
         command: |
