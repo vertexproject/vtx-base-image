@@ -38,7 +38,7 @@ RUN set -ex \
     && chown synuser:synuser /home/synuser \
     # Cleanup
     && rm -rf requirements \
-    && apt-get remove -y --purge curl build-essential gnupg2 \
+    && apt-get remove -y --purge curl build-essential \
     && apt-get remove -y --allow-remove-essential --purge e2fsprogs \
     && apt-get autoremove -y --purge \
     && apt-get clean && apt-get purge \
