@@ -4,6 +4,13 @@ executors:
   amd64:
     machine:
       image: ubuntu-2204:current
+  amd64-2404:
+    machine:
+      image: ubuntu-2404:current
+  arm64-2404:
+    machine:
+      image: ubuntu-2404:current
+    resource_class: arm.large
 
 commands:
   docker_build:
@@ -23,7 +30,10 @@ commands:
             export DOCKER_BUILDKIT=1
             export BUILDKIT_PROGRESS=plain
             docker context create "<< parameters.IMAGE_ARCH >>-build"
-            docker buildx create "<< parameters.IMAGE_ARCH >>-build" "--platform=linux/<< parameters.IMAGE_ARCH >>" --use
+            docker buildx create \
+                "<< parameters.IMAGE_ARCH >>-build" \
+                "--platform=linux/<< parameters.IMAGE_ARCH >>" \
+                --use
             docker buildx inspect --bootstrap
   
             # produce single-arch image for future publishing
@@ -35,7 +45,13 @@ commands:
                 .
 
       - save_cache:
-          key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
+          key: &syn-cache
+            syntestimage-
+            << parameters.DIRNAME >>
+            << pipeline.project.git_url >>
+            << pipeline.git.branch >>
+            << parameters.IMAGE_ARCH >>
+            -regular
           paths:
             - syntestimage.<< parameters.IMAGE_ARCH >>.tar
 
@@ -53,7 +69,7 @@ commands:
       - checkout
       # note, cache in restore_cache comes from the latest build step only
       - restore_cache:
-          key: syntestimage-<< parameters.DIRNAME >><< pipeline.git.revision >>-regular
+          key: *syn-cache
       - run:
           name: set up test images and run tests
           command: |
@@ -66,7 +82,8 @@ commands:
             docker container run --rm "syntestimage:<< parameters.DIRNAME >>-regular" \
                 python -m pip freeze
 
-            printf "FROM syntestimage:<< parameters.DIRNAME >>-regular\n\n" > "test/Dockerfile_<< parameters.DIRNAME >>"
+            printf "FROM syntestimage:<< parameters.DIRNAME >>-regular\n\n" > \
+                "test/Dockerfile_<< parameters.DIRNAME >>"
             cat test/Dockerfile >> "test/Dockerfile_<< parameters.DIRNAME >>"
             docker buildx build \
                 --platform << parameters.IMAGE_ARCH >> \
@@ -103,7 +120,34 @@ jobs:
     steps:
       - docker_test:
           DIRNAME: python313
-          SYN_MASTER_REF: bender/syn3xx/py313-updates
+
+  build_313_amd64:
+    executor: amd64-2404
+    steps:
+      - docker_build:
+          DIRNAME: python313_multiarch
+          IMAGE_ARCH: amd64
+
+  test_313_amd64:
+    executor: amd64-2404
+    steps:
+      - docker_test:
+          DIRNAME: python313_multiarch
+          IMAGE_ARCH: amd64
+
+  build_313_arm64:
+    executor: arm64-2404
+    steps:
+      - docker_build:
+          DIRNAME: python313_multiarch
+          IMAGE_ARCH: arm64
+
+  test_313_arm64:
+    executor: arm64-2404
+    steps:
+      - docker_test:
+          DIRNAME: python313_multiarch
+          IMAGE_ARCH: arm64
 
 workflows:
   build-and-test:
@@ -116,3 +160,11 @@ workflows:
       - test_313:
           requires:
             - build_313
+      - build_313_amd64
+      - test_313_amd64:
+          requires:
+            - build_313_amd64
+      - build_313_arm64
+      - test_313_arm64:
+          requires:
+            - build_313_arm64
