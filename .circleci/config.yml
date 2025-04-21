@@ -103,7 +103,7 @@ jobs:
     steps:
       - docker_test:
           DIRNAME: python313
-          SYN_MASTER_REF: bender/syn3xx/py313-updates
+          SYN_MASTER_REF: synapse-3xx
 
 workflows:
   build-and-test:
