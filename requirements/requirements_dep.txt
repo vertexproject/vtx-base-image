@@ -70,7 +70,7 @@ jsonpointer==3.0.0
 jsonschema==4.23.0
 ###################################
 # jsonschema -> jsonschema-specifications
-jsonschema-specifications==2024.10.1
+jsonschema-specifications==2025.4.1
 ###################################
 # scalecodec -> more-itertools
 more-itertools==10.6.0
