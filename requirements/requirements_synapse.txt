@@ -29,4 +29,4 @@ idna==3.10
 python-dateutil==2.9.0.post0
 pytz==2025.2
 beautifulsoup4==4.13.4
-vtx-yyjson==4.2.0
+vtx-yyjson==4.2.1
