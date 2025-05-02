@@ -33,7 +33,7 @@ cffi==1.17.1
 ###################################
 # aiohttp -> charset-normalizer
 # requests -> charset-normalizer
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
 ###################################
 # stix2-validator -> colorama
 colorama==0.4.6
