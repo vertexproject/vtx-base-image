@@ -3,7 +3,7 @@ tornado==6.4.2
 aiohttp==3.11.16
 aiohttp-socks==0.10.1
 aiosmtplib==3.0.2
-pyOpenSSL==24.2.1
+pyOpenSSL==25.1.0
 cryptography==43.0.3
 msgpack==1.1.0
 xxhash==3.5.0
