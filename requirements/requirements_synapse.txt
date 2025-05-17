@@ -24,7 +24,7 @@ cbor2==5.6.5
 bech32==1.2.0
 aioimaplib==1.1.0
 oauthlib==3.2.2
-pycryptodome==3.22.0
+pycryptodome==3.23.0
 idna==3.10
 python-dateutil==2.9.0.post0
 pytz==2025.2
