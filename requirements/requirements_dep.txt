@@ -67,7 +67,7 @@ isoduration==20.11.0
 jsonpointer==3.0.0
 ###################################
 # stix2-validator -> jsonschema
-jsonschema==4.23.0
+jsonschema==4.24.1
 ###################################
 # jsonschema -> jsonschema-specifications
 jsonschema-specifications==2024.10.1
