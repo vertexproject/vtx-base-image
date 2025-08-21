@@ -26,7 +26,7 @@ arrow==1.3.0
 attrs==23.1.0
 ###################################
 # requests -> certifi
-certifi==2025.6.15
+certifi==2025.7.14
 ###################################
 # cryptography -> cffi
 cffi==1.17.1
@@ -99,7 +99,7 @@ referencing==0.36.2
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
-requests==2.32.4
+requests==2.32.5
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4

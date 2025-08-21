@@ -7,8 +7,8 @@ pyOpenSSL==24.2.1
 cryptography==43.0.3
 msgpack==1.1.0
 xxhash==3.5.0
-lmdb==1.6.2
-regex==2024.11.6
+lmdb==1.7.3
+regex==2025.7.29
 PyYAML==6.0.2
 prompt-toolkit==3.0.51
 Pygments==2.19.1
@@ -18,7 +18,7 @@ fastjsonschema==2.21.1
 stix2-validator==3.2.0
 base58==2.1.1
 python-bitcoinlib==0.12.2
-typing-extensions==4.13.2
+typing-extensions==4.14.1
 scalecodec==1.2.9
 cbor2==5.6.5
 bech32==1.2.0
