@@ -83,7 +83,7 @@ multidict==6.6.4
 pluggy==1.3.0
 ###################################
 # yarl -> propcache
-propcache==0.3.1
+propcache==0.3.2
 ###################################
 # cffi -> pycparser
 pycparser==2.22
