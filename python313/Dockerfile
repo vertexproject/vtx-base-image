@@ -1,11 +1,11 @@
-FROM python:3.13.4-slim-bookworm
+FROM python:3.13.7-slim-bookworm
 
 LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED=1
 
-COPY get-pip-25.0.1.py get-pip.py
+COPY get-pip-25.2.0.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python313/rmlist.txt rmlist.txt
