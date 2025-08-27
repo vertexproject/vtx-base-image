@@ -121,7 +121,7 @@ simplejson==3.20.1
 six==1.17.0
 ###################################
 # beautifulsoup4 -> soupsieve
-soupsieve==2.6
+soupsieve==2.8
 ###################################
 # stix2-validator -> stix2-patterns
 stix2-patterns==2.0.0
