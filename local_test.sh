@@ -7,6 +7,10 @@
 BASEIMAGE=${1}
 SYN_MASTER_REF=${2:master}
 
+if [ -z $BASEIMAGE ]; then
+  echo "Must provide base image arg" && exit 1
+fi
+
 set -e # exit on nonzero
 set -u # undefined variables
 set -o pipefail # pipefail propagate error codes
