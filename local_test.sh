@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Test script to for local dev
+# Test script for local dev
 # Takes an image name, builds the test image locally; then runs the image.
 # Can specify an optional synapse branch name.
 
