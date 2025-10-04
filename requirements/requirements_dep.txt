@@ -71,7 +71,7 @@ more-itertools==10.6.0
 multidict==6.6.4
 ###################################
 # yarl -> propcache
-propcache==0.3.2
+propcache==0.4.0
 ###################################
 # cffi -> pycparser
 pycparser==2.22
