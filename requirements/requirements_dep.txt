@@ -80,7 +80,7 @@ pycparser==2.22
 python-socks==2.7.2
 ###################################
 # jsonschema -> referencing
-referencing==0.36.2
+referencing==0.37.0
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
