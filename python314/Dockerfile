@@ -44,7 +44,7 @@ RUN set -ex \
     && apt-get clean && apt-get purge \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
-    && rm pandoc-amd64.deb \
+    && rm pandoc-amd64.deb
     # && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
     # && rm rmlist.txt
 
