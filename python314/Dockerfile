@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED=1
 
 COPY pandoc.deb.sha256 pandoc.deb.sha256
-COPY requirements requirements
+# COPY requirements requirements
 COPY python314/rmlist.txt rmlist.txt
 
 # Install dependencies, Python 3.14, and setup environment
@@ -28,9 +28,9 @@ RUN set -ex \
     && dpkg-reconfigure locales \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
-    && mv requirements/requirements_314.txt requirements/requirements_specific.txt \
+    # && mv requirements/requirements_314.txt requirements/requirements_specific.txt \
     # && pip install -U pip setuptools \
-    && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
+    # && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
     && useradd -r --home-dir=/home/synuser -u 999 -g synuser --shell /bin/bash synuser \
