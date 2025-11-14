@@ -5,7 +5,6 @@ LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PYTHONUNBUFFERED=1
 
-COPY get-pip-25.2.0.py get-pip.py
 COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python314/rmlist.txt rmlist.txt
@@ -15,9 +14,10 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update \
     && apt-get -y upgrade \
+    && apt-get install -y libffi-dev \
     && apt-get install -y locales curl tini nano build-essential \
-    # Install pip
-    && python get-pip.py --no-cache-dir \
+    # Upgrade pip
+    && python -m pip install --upgrade pip \
     # Install pandoc
     && curl -L -o pandoc-amd64.deb https://github.com/jgm/pandoc/releases/download/3.1.9/pandoc-3.1.9-1-amd64.deb \
     && sha256sum --check pandoc.deb.sha256 \
@@ -45,7 +45,6 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/* \
     && rm pandoc.deb.sha256 \
     && rm pandoc-amd64.deb \
-    && rm get-pip.py \
     && while read path; do if [ -e $path ]; then echo "Removing ${path}" && rm -rf $path; else echo "! Path not present: ${path}"; exit 1; fi done < rmlist.txt \
     && rm rmlist.txt
 
