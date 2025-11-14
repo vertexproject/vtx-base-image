@@ -1,0 +1,2 @@
+# 3.14+ support for a mainline dependency
+vcrpy==7.0.0
