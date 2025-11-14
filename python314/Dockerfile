@@ -9,7 +9,7 @@ COPY pandoc.deb.sha256 pandoc.deb.sha256
 COPY requirements requirements
 COPY python314/rmlist.txt rmlist.txt
 
-# Install dependencies, Python 3.13, and setup environment
+# Install dependencies, Python 3.14, and setup environment
 RUN set -ex \
     && apt-get clean \
     && apt-get update \
@@ -29,7 +29,7 @@ RUN set -ex \
     && /usr/sbin/update-locale LANG=en_US.UTF-8 \
     # Install our packages
     && mv requirements/requirements_314.txt requirements/requirements_specific.txt \
-    && pip install -U pip setuptools \
+    # && pip install -U pip setuptools \
     && pip install --no-cache-dir --no-deps -r requirements/requirements.txt \
     # Setup synuser
     && groupadd -g 999 synuser \
