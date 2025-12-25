@@ -18,6 +18,6 @@ requirements:
   - requirements/requirements_311.txt:
       update: all
       pin: True
-  - requirements/requirements_313.txt:
-      update: all
-      pin: True
+#  - requirements/requirements_313.txt:
+#      update: all
+#      pin: True
