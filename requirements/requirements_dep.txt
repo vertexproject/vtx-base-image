@@ -23,7 +23,7 @@ arrow==1.3.0
 # aiohttp-socks -> attrs
 # referencing -> attrs
 # jsonschema -> attrs
-attrs==23.1.0
+attrs==25.4.0
 ###################################
 # requests -> certifi
 certifi==2025.11.12
