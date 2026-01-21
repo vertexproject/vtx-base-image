@@ -8,7 +8,7 @@ cryptography==43.0.3
 msgpack==1.1.0
 xxhash==3.5.0
 lmdb==1.7.3
-regex==2025.11.3
+regex==2026.1.15
 PyYAML==6.0.3
 prompt-toolkit==3.0.51
 Pygments==2.19.2
