@@ -6,7 +6,7 @@ aiosmtplib==3.0.2
 pyOpenSSL==24.2.1
 cryptography==43.0.3
 msgpack==1.1.0
-xxhash==3.5.0
+xxhash==3.6.0
 lmdb==1.7.3
 regex==2026.1.15
 PyYAML==6.0.3
