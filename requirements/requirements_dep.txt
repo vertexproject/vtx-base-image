@@ -55,7 +55,7 @@ html5lib==1.1
 isoduration==20.11.0
 ###################################
 # jsonschema -> jsonpointer
-jsonpointer==3.0.0
+jsonpointer==3.1.0
 ###################################
 # stix2-validator -> jsonschema
 jsonschema==4.23.0
