@@ -14,7 +14,7 @@ prompt-toolkit==3.0.51
 Pygments==2.19.2
 lark==1.2.2
 packaging==24.2
-fastjsonschema==2.21.1
+fastjsonschema==2.21.2
 stix2-validator==3.2.0
 base58==2.1.1
 python-bitcoinlib==0.12.2
