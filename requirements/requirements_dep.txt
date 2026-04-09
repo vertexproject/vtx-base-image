@@ -31,7 +31,6 @@ certifi==2026.2.25
 # cryptography -> cffi
 cffi==1.17.1
 ###################################
-# aiohttp -> charset-normalizer
 # requests -> charset-normalizer
 charset-normalizer==3.4.3
 ###################################
@@ -99,7 +98,6 @@ rpds-py==0.24.0
 simplejson==3.20.1
 ###################################
 # vcrpy -> six
-# pyopenssl -> six
 # python-dateutil -> six
 # stix2-patterns -> six
 # html5lib -> six
