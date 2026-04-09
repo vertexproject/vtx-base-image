@@ -73,7 +73,7 @@ multidict==6.7.1
 propcache==0.4.1
 ###################################
 # cffi -> pycparser
-pycparser==2.22
+pycparser==3.0
 ###################################
 # aiotthp-socks -> python-socks
 python-socks==2.8.1
