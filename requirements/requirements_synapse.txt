@@ -1,17 +1,16 @@
 # Required packages for synapse
-tornado==6.5.4
-aiohttp==3.13.3
+tornado==6.5.5
+aiohttp==3.13.5
 aiohttp-socks==0.10.1
 aiosmtplib==3.0.2
-pyOpenSSL==24.2.1
-cryptography==43.0.3
-msgpack==1.1.0
-xxhash==3.5.0
+cryptography==46.0.7
+msgpack==1.1.2
+xxhash==3.6.0
 lmdb==1.7.3
-regex==2026.1.15
+regex==2026.4.4
 PyYAML==6.0.3
 prompt-toolkit==3.0.51
-Pygments==2.19.2
+Pygments==2.20.0
 lark==1.2.2
 packaging==26.0
 fastjsonschema==2.21.1
@@ -20,7 +19,7 @@ base58==2.1.1
 python-bitcoinlib==0.12.2
 typing-extensions==4.14.1
 scalecodec==1.2.12
-cbor2==5.8.0
+cbor2==5.9.0
 bech32==1.2.0
 oauthlib==3.3.1
 pycryptodome==3.23.0

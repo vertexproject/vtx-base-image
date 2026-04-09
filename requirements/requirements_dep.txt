@@ -14,10 +14,10 @@ aiohappyeyeballs==2.6.1
 aiosignal==1.4.0
 ###################################
 # stix2-patterns -> antlr4-python3-runtime
-antlr4-python3-runtime==4.9.3
+antlr4-python3-runtime==4.13.2
 ###################################
 # isoduration -> arrow
-arrow==1.3.0
+arrow==1.4.0
 ###################################
 # aiohttp -> attrs
 # aiohttp-socks -> attrs
@@ -26,14 +26,13 @@ arrow==1.3.0
 attrs==23.1.0
 ###################################
 # requests -> certifi
-certifi==2026.1.4
+certifi==2026.2.25
 ###################################
 # cryptography -> cffi
 cffi==1.17.1
 ###################################
-# aiohttp -> charset-normalizer
 # requests -> charset-normalizer
-charset-normalizer==3.4.3
+charset-normalizer==3.4.7
 ###################################
 # stix2-validator -> colorama
 colorama==0.4.6
@@ -55,7 +54,7 @@ html5lib==1.1
 isoduration==20.11.0
 ###################################
 # jsonschema -> jsonpointer
-jsonpointer==3.0.0
+jsonpointer==3.1.1
 ###################################
 # stix2-validator -> jsonschema
 jsonschema==4.23.0
@@ -64,7 +63,7 @@ jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 ###################################
 # scalecodec -> more-itertools
-more-itertools==10.6.0
+more-itertools==11.0.2
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
@@ -77,14 +76,14 @@ propcache==0.3.2
 pycparser==2.22
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.7.2
+python-socks==2.8.1
 ###################################
 # jsonschema -> referencing
 referencing==0.36.2
 ###################################
 # scalecodec -> requests
 # stix2-validator -> requests
-requests==2.32.5
+requests==2.33.1
 ###################################
 # jsonschema -> rfc3339-validator
 rfc3339-validator==0.1.4
@@ -99,20 +98,16 @@ rpds-py==0.24.0
 simplejson==3.20.1
 ###################################
 # vcrpy -> six
-# pyopenssl -> six
 # python-dateutil -> six
 # stix2-patterns -> six
 # html5lib -> six
 six==1.17.0
 ###################################
 # beautifulsoup4 -> soupsieve
-soupsieve==2.8.1
+soupsieve==2.8.3
 ###################################
 # stix2-validator -> stix2-patterns
-stix2-patterns==2.0.0
-###################################
-# arrow -> types-python-dateutil
-types-python-dateutil==2.9.0.20250822
+stix2-patterns==2.1.2
 ###################################
 # uri-template
 # stix2-validator -> jsonschema
@@ -125,14 +120,14 @@ urllib3==2.6.3
 wcwidth==0.2.13
 ###################################
 # jsonschema -> webcolors
-webcolors==24.11.1
+webcolors==25.10.0
 ###################################
 # html5lib -> webencodings
 webencodings==0.5.1
 ###################################
 # vcrpy -> wrapt
-wrapt==1.15.0
+wrapt==2.1.2
 ###################################
 # vcrpy -> yarl
 # aiohttp -> yarl
-yarl==1.20.1
+yarl==1.23.0
