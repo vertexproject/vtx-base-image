@@ -123,7 +123,7 @@ urllib3==2.6.3
 wcwidth==0.2.13
 ###################################
 # jsonschema -> webcolors
-webcolors==24.11.1
+webcolors==25.10.0
 ###################################
 # html5lib -> webencodings
 webencodings==0.5.1
