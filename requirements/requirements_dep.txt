@@ -32,7 +32,7 @@ certifi==2026.2.25
 cffi==1.17.1
 ###################################
 # requests -> charset-normalizer
-charset-normalizer==3.4.3
+charset-normalizer==3.4.7
 ###################################
 # stix2-validator -> colorama
 colorama==0.4.6
