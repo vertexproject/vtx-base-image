@@ -1,8 +1,0 @@
-# These files are all related to dev/test work.
-# Code style checks
-pycodestyle==2.14.0
-# Test related packages
-coverage==7.6.7
-codecov==2.1.13
-pytest==7.4.3
-pytest-cov==6.0.0
