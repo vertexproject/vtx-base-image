@@ -9,7 +9,7 @@ xxhash==3.6.0
 lmdb==1.7.3
 regex==2026.4.4
 PyYAML==6.0.3
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
 Pygments==2.20.0
 lark==1.2.2
 packaging==24.2
