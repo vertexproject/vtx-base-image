@@ -19,8 +19,6 @@ antlr4-python3-runtime==4.13.2
 # isoduration -> arrow
 arrow==1.4.0
 ###################################
-# aiohttp -> attrs
-# aiohttp-socks -> attrs
 # referencing -> attrs
 # jsonschema -> attrs
 attrs==26.1.0
