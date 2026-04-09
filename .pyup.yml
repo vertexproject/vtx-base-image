@@ -6,6 +6,9 @@ requirements:
   - requirements/requirements.txt:
       update: False
       pin: False
+  - requirements/requirements_build.txt:
+      update: all
+      pin: True
   - requirements/requirements_synapse.txt:
       update: all
       pin: True
@@ -16,8 +19,5 @@ requirements:
       update: all
       pin: True
   - requirements/requirements_311.txt:
-      update: all
-      pin: True
-  - requirements/requirements_313.txt:
       update: all
       pin: True
