@@ -19,17 +19,15 @@ antlr4-python3-runtime==4.13.2
 # isoduration -> arrow
 arrow==1.4.0
 ###################################
-# aiohttp -> attrs
-# aiohttp-socks -> attrs
 # referencing -> attrs
 # jsonschema -> attrs
-attrs==23.1.0
+attrs==26.1.0
 ###################################
 # requests -> certifi
 certifi==2026.2.25
 ###################################
 # cryptography -> cffi
-cffi==1.17.1
+cffi==2.0.0
 ###################################
 # requests -> charset-normalizer
 charset-normalizer==3.4.7
@@ -70,10 +68,10 @@ more-itertools==11.0.2
 multidict==6.7.1
 ###################################
 # yarl -> propcache
-propcache==0.3.2
+propcache==0.4.1
 ###################################
 # cffi -> pycparser
-pycparser==2.22
+pycparser==3.0
 ###################################
 # aiotthp-socks -> python-socks
 python-socks==2.8.1
