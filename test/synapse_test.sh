@@ -10,6 +10,6 @@ cp -v /opt/test/pytest.ini .
 which python3
 which python
 python -m pip install pytest pytest-cov
-SYN_VENDOR_TEST=1 python3 -m pytest
+SYNDEV_CELL_DRIVE_NOSPAWN=1 SYN_VENDOR_TEST=1 python3 -m pytest
 # pytest -v -s --disable-warnings --durations 6 --maxfail 6
 exit $?
