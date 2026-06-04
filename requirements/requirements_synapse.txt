@@ -6,7 +6,7 @@ aiosmtplib==3.0.2
 cryptography==48.0.0
 msgpack==1.1.2
 xxhash==3.7.0
-lmdb==1.7.3
+lmdb==2.2.1
 regex==2026.5.9
 PyYAML==6.0.3
 prompt-toolkit==3.0.52
