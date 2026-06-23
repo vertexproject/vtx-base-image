@@ -74,7 +74,7 @@ propcache==0.4.1
 pycparser==3.0
 ###################################
 # aiotthp-socks -> python-socks
-python-socks==2.8.1
+python-socks==2.8.2
 ###################################
 # jsonschema -> referencing
 referencing==0.37.0
