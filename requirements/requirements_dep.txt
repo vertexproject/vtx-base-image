@@ -61,7 +61,7 @@ jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
 ###################################
 # scalecodec -> more-itertools
-more-itertools==11.0.2
+more-itertools==11.1.0
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
