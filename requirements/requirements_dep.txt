@@ -27,7 +27,7 @@ attrs==26.1.0
 certifi==2026.5.20
 ###################################
 # cryptography -> cffi
-cffi==2.0.0
+cffi==2.1.0
 ###################################
 # requests -> charset-normalizer
 charset-normalizer==3.4.7
