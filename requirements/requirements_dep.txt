@@ -121,7 +121,7 @@ wcwidth==0.7.0
 webcolors==25.10.0
 ###################################
 # html5lib -> webencodings
-webencodings==0.5.1
+webencodings==0.6.1
 ###################################
 # vcrpy -> wrapt
 wrapt==2.1.2
