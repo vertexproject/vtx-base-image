@@ -65,7 +65,7 @@ more-itertools==11.0.2
 ###################################
 # aiohttp -> multidict
 # yarl -> multidict
-multidict==6.7.1
+multidict==6.9.0
 ###################################
 # yarl -> propcache
 propcache==0.4.1
