@@ -39,7 +39,7 @@ colorama==0.4.6
 cpe==1.3.1
 ###################################
 # jsonschema -> fqdn
-fqdn==1.5.1
+fqdn==1.6.0
 ###################################
 # aiohttp -> frozenlist
 # aiosignal -> frozenlist
