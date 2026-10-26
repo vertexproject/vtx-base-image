@@ -6,10 +6,10 @@ executors:
       image: ubuntu-2204:current
       resource_class: large.gen2
 
-  amd64_small:
+  amd64_medium:
     machine:
       image: ubuntu-2204:current
-      resource_class: small.gen2
+      resource_class: medium.gen2
 
 commands:
   docker_build:
