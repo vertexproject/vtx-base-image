@@ -1,10 +1,15 @@
 version: 2.1
 
 executors:
-  amd64:
+  amd64_large:
     machine:
       image: ubuntu-2204:current
-      resource_class: medium.gen2
+      resource_class: large.gen2
+
+  amd64_small:
+    machine:
+      image: ubuntu-2204:current
+      resource_class: small.gen2
 
 commands:
   docker_build:
@@ -82,13 +87,13 @@ commands:
 
 jobs:
   build_311:
-    executor: amd64
+    executor: amd64_small
     steps:
       - docker_build:
           DIRNAME: python311
 
   test_311:
-    executor: amd64
+    executor: amd64_large
     steps:
       - docker_test:
           DIRNAME: python311
