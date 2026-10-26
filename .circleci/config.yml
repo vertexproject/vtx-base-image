@@ -87,7 +87,7 @@ commands:
 
 jobs:
   build_311:
-    executor: amd64_small
+    executor: amd64_medium
     steps:
       - docker_build:
           DIRNAME: python311
