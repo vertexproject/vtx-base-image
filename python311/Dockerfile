@@ -1,4 +1,5 @@
-FROM python:3.11.14-slim-bookworm
+FROM python:3.11.17-slim-trixie
+# NOTE: This should target 3.11.18 but those images have not be been published
 
 LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 
