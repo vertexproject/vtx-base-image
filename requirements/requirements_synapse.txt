@@ -10,7 +10,7 @@ aiosmtplib==3.0.2
 #
 cryptography==50.0.2
 #
-msgpack==1.2.3
+msgpack==1.2.4
 #
 xxhash==4.0.2
 #
