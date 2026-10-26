@@ -4,6 +4,7 @@ executors:
   amd64:
     machine:
       image: ubuntu-2204:current
+      resource_class: medium.gen2
 
 commands:
   docker_build:

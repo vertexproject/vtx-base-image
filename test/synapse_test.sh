@@ -9,7 +9,7 @@ cd ./synapse
 cp -v /opt/test/pytest.ini .
 which python3
 which python
-python -m pip install pytest pytest-cov
-SYNDEV_CELL_DRIVE_NOSPAWN=1 SYN_VENDOR_TEST=1 python3 -m pytest
+python -m pip install pytest pytest-cov pytest-xdist
+SYNDEV_CELL_DRIVE_NOSPAWN=1 SYN_VENDOR_TEST=1 python3 -m pytest -n 3 --dist=worksteal
 # pytest -v -s --disable-warnings --durations 6 --maxfail 6
 exit $?
