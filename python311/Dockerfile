@@ -1,4 +1,4 @@
-FROM python:3.11.14-slim-bookworm
+FROM python:3.11.18-slim-bookworm
 
 LABEL maintainer="vEpiphyte <epiphyte@vertex.link>"
 
