@@ -30,7 +30,7 @@ packaging==26.3
 #
 fastjsonschema==2.21.2
 #
-stix2-validator==3.2.0
+stix2-validator==3.3.2
 #
 base58==2.1.1
 #
