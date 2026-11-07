@@ -46,7 +46,7 @@ bech32==1.2.0
 #
 oauthlib==4.0.1
 #
-pycryptodome==3.23.0
+pycryptodome==4.4.0
 #
 idna==3.11
 #
