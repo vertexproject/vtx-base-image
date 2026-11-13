@@ -52,7 +52,7 @@ idna==3.11
 #
 python-dateutil==2.9.0.post0
 #
-pytz==2025.2
+pytz==2026.6
 #
 beautifulsoup4==4.15.0
 #
